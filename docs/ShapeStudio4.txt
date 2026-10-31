@@ -1,0 +1,72 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# ShapeStudio Module Documentation (Part 4 of 4)
+## Layer Management, Shortcuts, Export Engine, & Rebuilding Guide
+
+### 8. Layer Stack Management & Inspector Sidebar
+- **Layer Panel**: Displays ordered stack of vector layers and freehand stroke groups.
+- **Layer Controls**:
+  - `Visibility Toggle`: Hides/shows layer on canvas without deleting.
+  - `Lock Toggle`: Prevents accidental selection and transformation.
+  - `Z-Index Reordering`: "Bring to Front", "Send to Back", "Move Up", "Move Down".
+  - `Layer Renaming`: Custom labels for easy layer identification.
+  - `Duplicate`: Clones selected layer with a offset positioning.
+
+### 9. Keyboard Shortcuts Reference
+| Key Combination | Action |
+| :--- | :--- |
+| `V` | Switch to Select / Move Tool |
+| `C` | Switch to Crop Tool (Auto-expands Canvas Visibility panel) |
+| `F` | Auto-Fit Canvas to Viewport / Screen Stage |
+| `P` | Switch to Freehand Pen / Brush Tool |
+| `T` | Insert New Text Layer |
+| `B` | Insert New Speech Balloon Layer |
+| `Space` (Hold) | Temporary Hand / Pan Canvas Mode |
+| `Delete` / `Backspace` | Delete Selected Layer(s) |
+| `Ctrl + Z` / `Cmd + Z` | Undo Last Layer Action |
+| `Ctrl + Y` / `Cmd + Y` | Redo Layer Action |
+| `Esc` | Clear Selection / Close Flyout Menus |
+
+
+### 10. Frame Baking & Saving Workflow
+When the user clicks "Bake & Save to Storyboard" (`handleBakeCanvasAndSave`):
+1. **Dimension Verification**: Reads `naturalWidth` and `naturalHeight` of the base frame image to preserve native full-resolution quality.
+2. **Offscreen Composite Execution**:
+   ```typescript
+   const canvas = document.createElement("canvas");
+   canvas.width = imgNaturalSize.width;
+   canvas.height = imgNaturalSize.height;
+   const ctx = canvas.getContext("2d")!;
+   
+   // 1. Draw Base Image
+   ctx.drawImage(baseImgElement, 0, 0);
+   
+   // 2. Draw Freehand Lines
+   renderFreehandLinesToCanvas(ctx, frameLines);
+   
+   // 3. Draw Sorted Vector Shape Layers
+   renderSortedLayersToCanvas(ctx, frameLayers);
+   
+   // 4. Export PNG Data URL
+   const bakedDataUrl = canvas.toDataURL("image/png");
+   onUpdateSliceUrl(activeIdx, bakedDataUrl);
+   ```
+3. **Notification**: Displays toast alert confirming frame URL updated in storyboard.
+
+### 11. Complete Rebuilding Instructions for Developers
+To rebuild the ShapeStudio component inside any React/TypeScript application:
+1. **Dependencies**: Install `react-image-crop` for cropping, `lucide-react` for UI icons, and standard React hooks.
+2. **State Setup**: Copy the `ShapeLayer`, `FreehandLine`, and `FrameData` interface definitions from Part 2.
+3. **Modal Layout**: Construct a 3-column UI:
+   - **Left Toolbar**: Tool selection buttons (Select, Crop, Brush, Shapes, Text, Speech, ChromaKey).
+   - **Center Canvas Stage**: Zoom/Pan wrapper container (`scale`, `translate`), base `<img>`, SVG vector handle overlay, and `ReactCrop` boundary.
+   - **Right Inspector Sidebar**: Expandable accordion panels (Layers Stack, Text/Bubble Editor, Canvas Visibility with 80% compact Crop controls, Color Palette).
+4. **Drawing Engine**: Implement `onMouseDown`, `onMouseMove`, `onMouseUp` handlers on the stage element to record freehand point arrays or create vector shapes interactively.
+5. **Bubble Tail Algorithm**: Calculate speech balloon tail polygon paths by connecting balloon border anchor points to the draggable `bubbleTail` point.
+6. **Baking Function**: Implement offscreen canvas rendering as specified in Section 10.
+7. **Parent Integration**: Pass image URLs into the modal via `slices` prop and return baked outputs via `onUpdateSliceUrl`.
+
+===================================================================================
+END OF SHAPESTUDIO TECHNICAL SPECIFICATION (Parts 1 - 4 Complete)
+All functions, schemas, toolsets, and integration pipelines are fully documented.
+===================================================================================

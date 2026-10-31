@@ -1,0 +1,79 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# Neo1 Studio Advanced Canvas Engine Manual
+
+## 1. Overview & Architecture
+Neo1 Studio (`Neo1StudioModal.tsx` & `src/components/neo1-app/`) is an advanced full-canvas composition workspace. It provides multi-layer compositing for text, stickers, and image assets, 3D perspective matrix warping, tilt, chroma key green/blue screen removal, custom shader effects, gradient fills, dynamic viewport auto-fitting, and canvas state exporting.
+
+```
++-------------------------------------------------------------------------------+
+|                            Neo1 Studio Canvas Engine                          |
+|                                                                               |
+|  +---------------------------+              +------------------------------+  |
+|  | Layer & Tool Panels       |              | Interactive Canvas Workspace |  |
+|  | (Image, Text, Warp, Chroma|              | (Multi-layer, Auto-Fit Stage)|  |
+|  +-------------+-------------+              +--------------+---------------+  |
+|                |                                           |                  |
+|                +---------------------+---------------------+                  |
+|                                      |                                        |
+|                                      v                                        |
+|                      +-------------------------------+                        |
+|                      | Layer Stack & Render Pipeline |                        |
+|                      | (Matrix, Perspective, Export) |                        |
+|                      +---------------+---------------+                        |
++--------------------------------------|----------------------------------------+
+                                       v
+                       +-------------------------------+
+                       | Baked Image Data URL Output   |
+                       +-------------------------------+
+```
+
+## 2. Core Layer Object Schema (`Layer`)
+
+```typescript
+export interface ImageLayer {
+  id: string;
+  name: string;
+  type: 'image';
+  src: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  rotation: number;
+  scaleX: number;
+  scaleY: number;
+  skewX: number;
+  skewY: number;
+  flipX: boolean;
+  flipY: boolean;
+  opacity: number;
+  blendMode: GlobalCompositeOperation;
+  chromaKey?: {
+    enabled: boolean;
+    targetColor: string; // Hex e.g. '#00FF00'
+    tolerance: number;   // 0.0 to 1.0
+  };
+}
+```
+
+## 3. Screen Size Adaptability & Auto-Fit Viewport (`handleFitToScreen`)
+- Neo1 features real-time container bounding calculations in `CanvasArea.tsx`.
+- The zoom toolbar includes a dedicated **Fit** button which calculates:
+  $$\text{Scale}_{\text{fit}} = \min\left(\frac{W_{\text{container}} - 64}{W_{\text{canvas}}}, \frac{H_{\text{container}} - 64}{H_{\text{canvas}}}\right)$$
+- Constrains scale smoothly within range $[0.05, 5.0]$ and centers canvas offset $(0, 0)$.
+
+## 4. Chroma-Key & Background Removal Engine
+The green/blue screen keyer processes canvas pixel buffers in real time:
+1. Samples target color $C_{\text{target}} = (R_t, G_t, B_t)$.
+2. Calculates Euclidean color distance:
+   $$D = \sqrt{(R - R_t)^2 + (G - G_t)^2 + (B - B_t)^2} / \sqrt{255^2 + 255^2 + 255^2}$$
+3. Sets alpha channel to $0$ if $D < \text{tolerance}$.
+
+## 5. High-Performance Canvas Rendering & Matrix Transformations
+All transform manipulations (scaling, rotation, skewing, perspective tilt) are executed via HTML5 Canvas matrix contexts with non-destructive state undo/redo capabilities.
+
+## 6. Direct Storyboard & Slice Integration
+- Integrated button in both Storyboard slots and Carved Slices gallery items (marked with `Sparkles` cyan icon).
+- Bakes composited layers and returns high-resolution PNG data URLs directly to the active storyboard frame.
+

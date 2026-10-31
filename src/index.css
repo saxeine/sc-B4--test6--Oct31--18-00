@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #020617; /* slate-950 */
+  color: #e2e8f0; /* slate-200 */
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make react-image-crop blend nicer on a dark theme */
+.react-crop {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.react-crop > div {
+  border-radius: 0.5rem;
+}
+
+/* Hide default number input spinners for cleaner look */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Hide all scrollbars application-wide while preserving mouse wheel scrolling */
+*, *::before, *::after {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Sequencer panel: compact transport slider and shared live-runtime motion. */
+.sequencer-range {
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(90deg, #00d68a 0%, #00d68a 48%, #e4edf7 48%, #e4edf7 100%);
+  outline: none;
+}
+
+.sequencer-range::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #e7edf5;
+  border: 3px solid #7b8ca0;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+}
+
+.sequencer-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #e7edf5;
+  border: 3px solid #7b8ca0;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+}
+
+@keyframes sequencer-spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@keyframes sequencer-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.12); filter: brightness(1.22); }
+}

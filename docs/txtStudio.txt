@@ -1,0 +1,182 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# txtStudio Advanced Typography & Text Warping Manual
+
+## 1. Overview & Architecture
+txtStudio (`ShapeStudioModal.tsx`) is a typography engine that supports non-linear path text warping (arc, wave, bulge, flag), 3D extrusion depth effects, drop shadows, multi-color gradient fills, stroke outlines, and canvas text baking.
+
+```
++-------------------------------------------------------------------------------+
+|                            ShapeStudioModal Workspace                         |
+|                                                                               |
+|  +---------------------------+              +------------------------------+  |
+|  | Typography & Effect Panel |              | Live Canvas Render Area      |  |
+|  | (Font, Warping, 3D, Glow) |              | (Drag Handles, Real-time)    |  |
+|  +-------------+-------------+              +--------------+---------------+  |
+|                |                                           |                  |
+|                +---------------------+---------------------+                  |
+|                                      |                                        |
+|                                      v                                        |
+|                      +-------------------------------+                        |
+|                      | Text Path & Layer Renderer    |                        |
+|                      | (drawWarpedText, Extrusion)   |                        |
+|                      +---------------+---------------+                        |
++--------------------------------------|----------------------------------------+
+                                       v
+                       +-------------------------------+
+                       | Baked Image Data URL Output   |
+                       +-------------------------------+
+```
+
+## 2. Text Layer Data Structure (`TextLayer`)
+
+```typescript
+export interface TextWarpConfig {
+  style: 'none' | 'arc' | 'arch' | 'wave' | 'bulge' | 'flag';
+  bend: number; // -100 to 100
+  horizontalDistortion?: number;
+  verticalDistortion?: number;
+}
+
+export interface TextLayer {
+  id: string;
+  text: string;
+  x: number;
+  y: number;
+  fontSize: number;
+  fontFamily: string;
+  fillColor: string;
+  strokeColor: string;
+  strokeWidth: number;
+  rotation: number;
+  shadowColor: string;
+  shadowBlur: number;
+  shadowOffsetX: number;
+  shadowOffsetY: number;
+  extrusionDepth: number; // 3D effect depth in pixels
+  extrusionColor: string;
+  warp: TextWarpConfig;
+}
+```
+
+## 3. High-Fidelity Text Rendering Pipeline
+
+```typescript
+function renderTextLayer(ctx: CanvasRenderingContext2D, layer: TextLayer) {
+  ctx.save();
+  ctx.translate(layer.x, layer.y);
+  ctx.rotate((layer.rotation * Math.PI) / 180);
+
+  // 1. Render 3D Extrusion Depth Layers
+  if (layer.extrusionDepth > 0) {
+    draw3DExtrusion(ctx, layer);
+  }
+
+  // 2. Render Shadow and Main Text (Warped or Standard)
+  if (layer.warp && layer.warp.style !== 'none') {
+    drawWarpedText(ctx, layer);
+  } else {
+    drawStandardText(ctx, layer);
+  }
+
+  ctx.restore();
+}
+```
+
+## 4. Character-by-Character Arc Text Warping Math
+
+To bend text along a circular arc with curvature angle $\theta_{\text{bend}} = \frac{\text{bend}}{100} \times \pi$, each character $c_i$ at string index $i \in [0, K-1]$ is offset by angle $\alpha_i$:
+
+Let $W_{\text{total}}$ be the total string width measured via `ctx.measureText(text).width`:
+$$\text{Radius } R = \frac{W_{\text{total}}}{\theta_{\text{bend}}}$$
+
+For character $c_i$ with character width $w_i$ and cumulative center position $x_i = \sum_{j=0}^{i-1} w_j + \frac{w_i}{2} - \frac{W_{\text{total}}}{2}$:
+
+$$\alpha_i = \frac{x_i}{R}$$
+$$X_i = R \cdot \sin(\alpha_i)$$
+$$Y_i = -R \cdot (1 - \cos(\alpha_i))$$
+$$\text{Rotation Angle } \phi_i = \alpha_i$$
+
+### Arc Text Render Code
+```typescript
+export function drawArcText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  bend: number,
+  fontSize: number,
+  fillColor: string
+) {
+  const totalWidth = ctx.measureText(text).width;
+  if (totalWidth === 0) return;
+
+  const bendAngle = (bend / 100) * Math.PI;
+  if (Math.abs(bendAngle) < 0.01) {
+    ctx.fillText(text, -totalWidth / 2, 0);
+    return;
+  }
+
+  const radius = totalWidth / bendAngle;
+  let currentX = 0;
+
+  ctx.save();
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const charWidth = ctx.measureText(char).width;
+    const charCenterX = currentX + charWidth / 2 - totalWidth / 2;
+    const alpha = charCenterX / radius;
+
+    const charX = radius * Math.sin(alpha);
+    const charY = -radius * (1 - Math.cos(alpha));
+
+    ctx.save();
+    ctx.translate(charX, charY);
+    ctx.rotate(alpha);
+    ctx.fillText(char, -charWidth / 2, 0);
+    ctx.restore();
+
+    currentX += charWidth;
+  }
+  ctx.restore();
+}
+```
+
+## 5. Wave & Bulge Warping Transformations
+
+### Wave Displacement Curve
+$$Y_{\text{wave}}(x) = \sin\left(\frac{x}{W_{\text{total}}} \cdot 2\pi\right) \times \left(\text{bend} \times 0.3\right)$$
+
+### Bulge Vertical Scale Factor
+$$S_{\text{bulge}}(x) = 1 + \left(1 - \left(\frac{2x}{W_{\text{total}}}\right)^2\right) \times \left(\frac{\text{bend}}{100}\right)$$
+
+## 6. 3D Extrusion Layer Stacking Algorithm
+
+Pseudo-3D text depth is generated by stacking $D$ offset vector fills behind the main glyphs:
+
+```typescript
+export function draw3DExtrusion(
+  ctx: CanvasRenderingContext2D,
+  layer: TextLayer
+) {
+  const depth = layer.extrusionDepth || 0;
+  if (depth <= 0) return;
+
+  ctx.save();
+  ctx.fillStyle = layer.extrusionColor || '#000000';
+
+  for (let d = depth; d >= 1; d--) {
+    const offsetX = d * 1.5;
+    const offsetY = d * 1.5;
+
+    ctx.save();
+    ctx.translate(offsetX, offsetY);
+    if (layer.warp && layer.warp.style !== 'none') {
+      drawWarpedText(ctx, { ...layer, fillColor: layer.extrusionColor });
+    } else {
+      ctx.fillText(layer.text, -ctx.measureText(layer.text).width / 2, 0);
+    }
+    ctx.restore();
+  }
+
+  ctx.restore();
+}
+```

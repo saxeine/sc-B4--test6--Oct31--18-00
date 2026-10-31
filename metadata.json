@@ -1,0 +1,10 @@
+{
+  "name": "sc-Bfyra--test6--oct28--19-00",
+  "description": "Remix of sc-B4--test4--oct27--12-OO",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

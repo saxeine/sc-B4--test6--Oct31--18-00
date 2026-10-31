@@ -1,0 +1,11 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Generated audit artifact (regenerate with: npm run ui:audit)
+docs/ui-copy-audit.json

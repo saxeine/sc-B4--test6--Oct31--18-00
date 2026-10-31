@@ -1,0 +1,304 @@
+{
+  "entities": {
+    "AppConfiguration": {
+      "title": "AppConfiguration",
+      "description": "Per-user master button customization and layout configuration document for SeqCarver Studio",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "User-scoped Firestore document ID",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "configKey": {
+          "type": "string",
+          "description": "Logical configuration key (e.g. main_config or saved snapshot slug)",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "Authenticated Firebase user UID owning this configuration",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "version": {
+          "type": "string",
+          "description": "Configuration schema version string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "appName": {
+          "type": "string",
+          "description": "Application or snapshot display name",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "globalSettings": {
+          "type": "object",
+          "description": "Global customization settings map"
+        },
+        "customConfigs": {
+          "type": "object",
+          "description": "Per-button customization configurations map"
+        },
+        "payload": {
+          "type": "object",
+          "description": "Additional serialized metadata, quickSlots, ordering arrays, and panel metadata"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when configuration was created or updated"
+        }
+      },
+      "required": [
+        "id",
+        "configKey",
+        "ownerId",
+        "version",
+        "appName",
+        "globalSettings",
+        "customConfigs",
+        "payload",
+        "updatedAt"
+      ]
+    },
+    "UserSaveState": {
+      "title": "UserSaveState",
+      "description": "Per-user application state document storing offloaded images, storyboard state, crop state, and layouts",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "User-scoped document ID",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "stateKey": {
+          "type": "string",
+          "description": "Logical state key identifier",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "Authenticated Firebase user UID owning this state item",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "data": {
+          "type": "string",
+          "description": "Serialized payload chunk or empty string for chunk manifest",
+          "minLength": 0,
+          "maxLength": 700000
+        },
+        "isChunked": {
+          "type": "boolean",
+          "description": "Flag indicating if the document payload is split across chunk documents"
+        },
+        "chunkIndex": {
+          "type": "number",
+          "description": "Zero-based index of the chunk"
+        },
+        "totalChunks": {
+          "type": "number",
+          "description": "Total number of chunks (>= 1)"
+        },
+        "totalSize": {
+          "type": "number",
+          "description": "Total payload size in characters/bytes"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation or modification"
+        }
+      },
+      "required": [
+        "id",
+        "stateKey",
+        "ownerId",
+        "data",
+        "isChunked",
+        "chunkIndex",
+        "totalChunks",
+        "totalSize",
+        "updatedAt"
+      ]
+    },
+    "UIConfigModuleDoc": {
+      "title": "UIConfigModuleDoc",
+      "description": "Per-user module slice of UI copy and layout overrides",
+      "type": "object",
+      "properties": {
+        "module": {
+          "type": "string",
+          "description": "Canonical module identifier",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "Authenticated Firebase user UID owning this registry slice",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "schema_version": {
+          "type": "number",
+          "description": "UI config schema version"
+        },
+        "records": {
+          "type": "object",
+          "description": "Map of element_key to UIConfigRecord"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when slice was updated"
+        }
+      },
+      "required": [
+        "module",
+        "ownerId",
+        "schema_version",
+        "records",
+        "updatedAt"
+      ]
+    },
+    "UIConfigAuditEntry": {
+      "title": "UIConfigAuditEntry",
+      "description": "Append-only per-user audit record for UI configuration commits",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "Authenticated Firebase user UID who created the audit entry",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "element_key": {
+          "type": "string",
+          "description": "Modified UI element key",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "module": {
+          "type": "string",
+          "description": "Module name(s) affected",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "action": {
+          "type": "string",
+          "description": "Mutation action type",
+          "enum": ["upsert", "reset", "bulk_upsert"],
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "author": {
+          "type": "string",
+          "description": "Author identifier or email",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "payload": {
+          "type": "object",
+          "description": "Before/after record snapshots"
+        },
+        "schema_version": {
+          "type": "number",
+          "description": "UI config schema version"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp"
+        }
+      },
+      "required": [
+        "ownerId",
+        "element_key",
+        "module",
+        "action",
+        "author",
+        "payload",
+        "schema_version",
+        "createdAt"
+      ]
+    },
+    "UIKeyValueShard": {
+      "title": "UIKeyValueShard",
+      "description": "Per-user sharded key/value configuration mirror",
+      "type": "object",
+      "properties": {
+        "shard": {
+          "type": "string",
+          "description": "Shard category identifier",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "Authenticated Firebase user UID owning this shard",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "entries": {
+          "type": "object",
+          "description": "Map of string keys to string values"
+        },
+        "schemaVersion": {
+          "type": "number",
+          "description": "Shard schema version (2)"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of shard write"
+        }
+      },
+      "required": [
+        "shard",
+        "ownerId",
+        "entries",
+        "schemaVersion",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/configurations/{configId}": {
+      "schema": "AppConfiguration",
+      "description": "Per-user master configuration and saved configuration versions"
+    },
+    "/app_states/{stateId}": {
+      "schema": "UserSaveState",
+      "description": "Per-user persisted state payloads and offloaded image chunks"
+    },
+    "/ui_config_registry/{moduleId}": {
+      "schema": "UIConfigModuleDoc",
+      "description": "Per-user UI copy and layout overrides grouped by module"
+    },
+    "/ui_config_audit/{auditId}": {
+      "schema": "UIConfigAuditEntry",
+      "description": "Per-user append-only audit trail for UI config commits"
+    },
+    "/ui_kv/{shardId}": {
+      "schema": "UIKeyValueShard",
+      "description": "Per-user sharded key/value synchronous store mirror"
+    }
+  }
+}

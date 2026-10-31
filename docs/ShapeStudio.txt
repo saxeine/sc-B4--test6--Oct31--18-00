@@ -1,0 +1,66 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# ShapeStudio Module Documentation (Part 1 of 4)
+## System Architecture, Application Integration, & Component Interface
+
+### 1. Overview & System Purpose
+ShapeStudio (`src/components/ShapeStudioModal.tsx`) is a vector annotation, speech bubble, freehand brush drawing, chroma-key background removal, image layer compositing, dynamic auto-fit viewport, and in-place cropping modal workspace. It enables creators to non-destructively draw shapes, place speech balloons, trace lines, apply brush effects, key out green/blue screens, crop frames, and manage frame layers before baking final renders back to the main storyboard application (`App.tsx`).
+
+```
++-------------------------------------------------------------------------------+
+|                           ShapeStudio Modal Engine                            |
+|                                                                               |
+|  +-----------------+  +-------------------------------+  +-----------------+  |
+|  | Left Toolbar    |  | Interactive Canvas Stage      |  | Right Sidebar   |  |
+|  | (Select, Crop,  |  | - Base Storyboard Image Frame |  | - Layers        |  |
+|  |  Brush, Shapes, |  | - Interactive Vector Layers   |  | - Text/Bubble   |  |
+|  |  Text, Bubbles, |  | - Freehand / Effect Lines     |  | - Canvas Vis    |  |
+|  |  ChromaKey)     |  | - ReactCrop Overlay           |  | - Color Palette |  |
+|  |                 |  | - Auto-Fit Viewport & Zoom    |  |                 |  |
+|  +-----------------+  +-------------------------------+  +-----------------+  |
+|                                       |                                       |
+|                                       v                                       |
+|               +-----------------------------------------------+               |
+|               | Render & Composite Engine (Canvas 2D Context) |               |
+|               +-----------------------+-----------------------+               |
++---------------------------------------|---------------------------------------+
+                                        v
+                    +---------------------------------------+
+                    | Baked Image Data URL -> App Storyboard|
+                    +---------------------------------------+
+```
+
+### 2. Application Integration & Data Flow
+ShapeStudio acts as an embedded modal within the parent application (`App.tsx`):
+1. **Frame State Synchronization**: Receives an array of `slices` (storyboard frames) and an `activeFrameIdx`.
+2. **Persistent Frame Layers**: Maintains per-frame state mapping (`FrameData`) so switching frames preserves vector layers and freehand strokes.
+3. **Canvas Baking**: When saving, ShapeStudio renders all layers onto an HTML5 Canvas, exports a PNG Data URL via `canvas.toDataURL("image/png")`, and invokes `onUpdateSliceUrl(activeIdx, newUrl)`.
+4. **Resend & Re-crop**: Integrates with the main crop mode via `onResendToCrop(url, sliceIndex)`.
+5. **Responsive Modal Layout**: Constrained with dynamic fluid scaling bounds (`max-w-[min(98vw,1800px)] max-h-[min(96vh,1050px)]`) ensuring maximum canvas visibility across varying monitor dimensions.
+
+### 3. Component Interface & Props (`ShapeStudioModalProps`)
+- `isOpen: boolean`: Controls modal visibility.
+- `onClose: () => void`: Closes the modal.
+- `slices: Slice[]`: Storyboard slices (`{ name: string; url: string; story?: string }`).
+- `activeFrameIdx: number`: Currently active frame index.
+- `onUpdateSliceUrl: (index: number, newUrl: string, newName?: string) => void`: Updates frame image URL in parent app.
+- `onAddFrame?: (newFrame: Slice, insertAtIndex?: number) => void`: Optional callback to insert new frames.
+- `onNavigateFrame?: (index: number) => void`: Syncs frame navigation with parent app.
+- `onDeleteFrame?: (index: number) => void`: Removes frames from sequence.
+- `onResendToCrop?: (url: string, sliceIndex: number) => void`: Sends frame image back to crop view.
+
+### 4. Primary Modal State Engines
+- **Active Frame**: `activeIdx` (number), `activeSlice` (`Slice`).
+- **Tool Selector**: `activeTool` ("select" | "hand" | "crop" | "brush" | "lines" | "rect" | "circle" | "bubble" | "text" | "arrow" | "star" | "heart" | "icon" | "chromaKey" | "healingBandage").
+- **Pan & Zoom Engine**:
+  - `zoomLevel` (0.1 to 5.0), `panOffset` (`{ x: number, y: number }`), `isPanning` (boolean).
+  - `handleFitToScreen`: Automatic calculation measuring stage container `getBoundingClientRect()` against image natural dimensions and setting optimal `zoomLevel` with centered `panOffset` `(0, 0)`.
+  - Dedicated **Fit** button in bottom canvas zoom toolbar and shortcut `F`.
+- **Undo / Redo History**: Maintains snapshots of `FrameData` in `undoStack` and `redoStack` arrays.
+
+===================================================================================
+CONTINUATION HOOK:
+This is Part 1 of 4 of the ShapeStudio technical specification.
+To inspect the complete Data Schema and Canvas Rendering Pipeline, see 'docs/ShapeStudio2.txt'.
+===================================================================================
+

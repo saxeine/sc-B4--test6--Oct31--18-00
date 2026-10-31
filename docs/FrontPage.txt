@@ -1,0 +1,85 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# Front Page 9-Screen Advertising Panel & Creative Studio Launcher Manual
+
+## 1. Overview & Architectural Role
+The Front Page / Launch Page in SeqCarver serves as a multi-functional 9-screen advertising media board, brand showcase, sample preset gallery, and centralized creative studio launcher. It utilizes an interactive 3x3 (9-box) matrix spread that can display promotional imagery, custom grid advert banners, campaign spreads, or user-defined multi-frame compositions.
+
+```
++-------------------------------------------------------------------------------+
+|                       Front Page / 9-Screen Launcher Hub                      |
+|                                                                               |
+|  +---------------------------+              +------------------------------+  |
+|  | Header & Studio Launchers |              | 9-Screen Advert Grid         |  |
+|  | (Screenplay, AniPlayer,   |              | [ Box 1 ] [ Box 2 ] [ Box 3 ]|  |
+|  |  Rename, Bubble, Neo-1,   |              | [ Box 4 ] [ Box 5 ] [ Box 6 ]|  |
+|  |  Shape, txtStudio)        |              | [ Box 7 ] [ Box 8 ] [ Box 9 ]|  |
+|  +-------------+-------------+              +--------------+---------------+  |
+|                |                                           |                  |
+|                +---------------------+---------------------+                  |
+|                                      |                                        |
+|                                      v                                        |
+|                      +-------------------------------+                        |
+|                      | Sample Presets & Spread Loader|                        |
+|                      | (Eurospect, Cyberpunk, Comic, |                        |
+|                      |  Neon Grid, Custom Spreads)   |                        |
+|                      +---------------+---------------+                        |
++--------------------------------------|----------------------------------------+
+                                       v
+                       +-------------------------------+
+                       | Image Slicer & Carver Engine  |
+                       | (Crop, Carve, Storyboard)     |
+                       +-------------------------------+
+```
+
+## 2. 9-Screen Media Grid System (`boxImages`)
+
+The central advertising canvas supports up to 9 individual screen cells indexed 1 to 9:
+- **Box 1 (Hero Screen)**: Defaults to the high-resolution `eurospect_header` artwork representing the platform branding and "About Us" visual hero.
+- **Boxes 2 through 9**: Secondary promotional frames, custom campaign spreads, or slice targets that can be clicked to load into active crop/carve workspaces.
+
+```typescript
+export interface DefaultBoxImages {
+  1?: string; // Hero banner / Eurospect header
+  2?: string;
+  3?: string;
+  4?: string;
+  5?: string;
+  6?: string;
+  7?: string;
+  8?: string;
+  9?: string;
+}
+```
+
+## 3. Screen Size Adaptability & Responsive Layout
+- **Dynamic Viewport Auto-Fit**: All 9-screen grid cards, canvas preview stages, and modal dialogs dynamically adapt to any screen resolution and aspect ratio via ResizeObserver viewport tracking.
+- **Responsive Workspace Containers**: Enhanced modal wrappers (`max-w-[min(98vw,1800px)]`) and workspace sidebar with dynamic max-width constraints (`min(48vw, 700px)`), fluid scaling, and a dedicated **Fit to Screen** control.
+
+## 4. Sample Presets & Advert Media Showcase
+Users and administrators can instantly load pre-configured advertising media spreads or individual demo assets from the Header Presets Menu:
+1. **Eurospect Brand Spread**: Official brand header art and 9-screen promotional background showcasing the application's visual identity.
+2. **Cyberpunk Cityscape**: High-contrast sci-fi concept showcase for testing complex multi-slice artwork.
+3. **Comic Art Panel**: Multi-frame sequential narrative demo with integrated dialogue layout compatibility.
+4. **Neon Grid Matrix**: Synthetic vaporwave background optimized for vector bubble and text studio contrast testing.
+5. **Custom Spread Upload**: Allows importing custom 9-image folders or single master advert banners split across the 3x3 matrix.
+
+## 5. Integrated Studio Launchers & Navigation
+From the top navigation bar and contextual menus, users can launch dedicated studio suites or navigate between operational modes:
+- **`Return to Front Page / Home`**: Resets workspace focus to the main 9-screen carver (`setMode("crop")`).
+- **`Screenplay Studio Launcher`**: Opens the shot list and scriptwriting suite (`ScreenplayWriter`) with caption burning.
+- **`AniPlayer Launcher`**: Opens the real-time canvas animation player and WebM video recorder (`FramePlayerModal`).
+- **`Bulk Rename Launcher`**: Opens the asset manifest renaming engine (`BulkRenameModal`) with live diffs and regex.
+- **`Bubble Studio Launcher`**: Opens the vector speech bubble and narration editor (`Bubba1StudioModal`).
+- **`Text & Shape Studio Launcher`**: Opens the 3D text warping and vector shape studio (`ShapeStudioModal`).
+- **`Neo-1 Canvas Launcher`**: Opens perspective layers, chroma-keying, and green screen engine (`Neo1StudioModal`).
+
+## 6. Mode Switching Ecosystem
+The application provides three primary operational modes accessible via the top navigation bar:
+1. **Crop Mode (`mode: "crop"`)**: Define canvas bounds, interactive rectangle/oval cropping, and queued Multi-Crops extraction.
+2. **Carve Mode (`mode: "carve"`)**: Automated grid slicing with auto-border detection, custom row/column counts, margin/gap adjustments, and slice naming styles.
+3. **Storyboard Mode (`mode: "storyboard"`)**: Visual sequence assembly board with dual-mode workspace (Split Storyboard view and Expanded Carved Slices gallery with background customization).
+
+## 7. Persistence & State Management
+All 9-screen box assignments and custom spread overrides are stored locally in IndexedDB (`seqcarver_defaultBox1Image` through `seqcarver_defaultBox9Image`), ensuring promotional configurations, custom backgrounds, and studio assets remain intact across browser reloads.
+

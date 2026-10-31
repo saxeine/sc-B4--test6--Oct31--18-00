@@ -1,0 +1,134 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# Bubble Studio Vector & Raster Compositing Manual
+
+## 1. Overview & Architecture
+Bubble Studio (`Bubba1StudioModal.tsx`) is a vector and raster layer-based editor designed for adding speech, thought, narration, shout, and action bubbles to comic and manga frames. It supports drag-and-drop handles, cubic bezier tail orientation, stroke styling, freehand drawing, responsive viewport auto-fitting, and direct canvas baking back to active storyboard slices and slots.
+
+```
++-------------------------------------------------------------------------------+
+|                           Bubba1StudioModal Workspace                         |
+|                                                                               |
+|  +---------------------------+              +------------------------------+  |
+|  | Active Layer Controls     |              | Interactive Canvas Workspace |  |
+|  | (Shape, Tail, Text, Style)|              | (Pan, Zoom, Auto-Fit Stage)  |  |
+|  +-------------+-------------+              +--------------+---------------+  |
+|                |                                           |                  |
+|                +---------------------+---------------------+                  |
+|                                      |                                        |
+|                                      v                                        |
+|                      +-------------------------------+                        |
+|                      |  Layer Stack & Render Engine  |                        |
+|                      |  (Transforms, Bezier, Baking) |                        |
+|                      +---------------+---------------+                        |
++--------------------------------------|----------------------------------------+
+                                       v
+                       +-------------------------------+
+                       | Baked Image Data URL Output   |
+                       +-------------------------------+
+```
+
+
+## 2. Core Layer Object Structure (`BubbleLayer`)
+
+```typescript
+export interface BubbleTailConfig {
+  enabled: boolean;
+  tipX: number;
+  tipY: number;
+  baseWidth: number;
+  handleX: number;
+  handleY: number;
+}
+
+export interface BubbleLayer {
+  id: string;
+  type: 'speech' | 'thought' | 'whisper' | 'scream' | 'narration' | 'box';
+  text: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  rotation: number;
+  backgroundColor: string;
+  borderColor: string;
+  borderWidth: number;
+  fontSize: number;
+  fontColor: string;
+  fontFamily: string;
+  tail: BubbleTailConfig;
+}
+```
+
+## 3. Layer Transformation & Render Pipeline
+
+Layer rendering uses isolated canvas transform stacks:
+
+```typescript
+function renderBubbleLayer(ctx: CanvasRenderingContext2D, layer: BubbleLayer) {
+  ctx.save();
+  ctx.translate(layer.x, layer.y);
+  ctx.rotate((layer.rotation * Math.PI) / 180);
+
+  // 1. Draw Tail Path
+  if (layer.tail.enabled) {
+    drawCubicBezierTail(ctx, layer);
+  }
+
+  // 2. Draw Bubble Body (Speech, Thought, Scream, Box)
+  drawBubbleShape(ctx, layer);
+
+  // 3. Render Centered Wrapped Text
+  renderBubbleText(ctx, layer);
+
+  ctx.restore();
+}
+```
+
+## 4. Cubic Bezier Tail Geometry
+
+A speech bubble tail connects two base points $B_1, B_2$ on the bubble boundary to a tip target $T = (x_t, y_t)$ via a control handle $C = (x_c, y_c)$:
+
+```typescript
+function drawCubicBezierTail(ctx: CanvasRenderingContext2D, layer: BubbleLayer) {
+  const { tipX, tipY, handleX, handleY, baseWidth } = layer.tail;
+  const halfBase = baseWidth / 2;
+
+  ctx.beginPath();
+  ctx.moveTo(-halfBase, layer.height / 2);
+  ctx.quadraticCurveTo(handleX, handleY, tipX, tipY);
+  ctx.quadraticCurveTo(handleX + 10, handleY + 10, halfBase, layer.height / 2);
+  ctx.fillStyle = layer.backgroundColor;
+  ctx.strokeStyle = layer.borderColor;
+  ctx.lineWidth = layer.borderWidth;
+  ctx.fill();
+  ctx.stroke();
+}
+```
+
+## 5. Thought Bubble Cloud Cluster Geometry
+
+Thought bubbles render a base ellipse with perimeter scalloped arcs:
+
+```typescript
+function drawThoughtBubble(ctx: CanvasRenderingContext2D, w: number, h: number) {
+  ctx.beginPath();
+  const rx = w / 2;
+  const ry = h / 2;
+  ctx.ellipse(0, 0, rx, ry, 0, 0, 2 * Math.PI);
+
+  const bumpCount = 8;
+  for (let i = 0; i < bumpCount; i++) {
+    const angle = (i * 2 * Math.PI) / bumpCount;
+    const bx = (rx - 4) * Math.cos(angle);
+    const by = (ry - 4) * Math.sin(angle);
+    ctx.moveTo(bx + 12, by);
+    ctx.arc(bx, by, 14, 0, 2 * Math.PI);
+  }
+  ctx.fill();
+  ctx.stroke();
+}
+```
+
+## 6. Undo / Redo History Stack Management
+Maintains deep immutable snapshots capped at 30 entries to preserve editing history without memory leaks.

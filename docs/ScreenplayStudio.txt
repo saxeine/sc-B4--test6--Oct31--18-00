@@ -1,0 +1,116 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# Screenplay & Speech Studio Manual
+
+## 1. Overview & Architecture
+The Screenplay & Speech Studio suite integrates scriptwriting, shot list management, dialogue formatting, and automated visual burning of captions and speech boxes directly onto storyboard images.
+
+```
++-----------------------------------------------------------------------+
+|                      ScreenplayWriter Component                       |
+|                                                                       |
+|  +------------------------+              +-------------------------+  |
+|  | Slide & Shot Navigator |              | Dialogue & Script Panel |  |
+|  | (Shot #, Image Preview)|              | (Speaker, Text, Action) |  |
+|  +-----------+------------+              +------------+------------+  |
+|              |                                       |                |
+|              +-------------------+-------------------+                |
+|                                  |                                    |
+|                                  v                                    |
+|                   +-----------------------------+                     |
+|                   |  Canvas Dialogue Burner     |                     |
+|                   |  (Text Wrap & Bubble Render)|                     |
+|                   +--------------+--------------+                     |
++----------------------------------|------------------------------------+
+                                   v
+                   +-----------------------------+
+                   | Baked Image Data URL Output |
+                   +-----------------------------+
+```
+
+## 2. Data Structure (`Slide`)
+
+```typescript
+export interface Caption {
+  id: string;
+  speaker: string;
+  text: string;
+  position?: 'top' | 'bottom' | 'center';
+  style?: 'speech' | 'thought' | 'narration' | 'caption';
+}
+
+export interface Slide {
+  id: string;
+  shotNo: number;
+  imageUrl: string;
+  action: string;
+  captions: Caption[];
+  dialogue?: string; // Legacy plaintext dialogue fallback
+}
+```
+
+## 3. Caption Burning Logic (`burnDialogueToCanvas`)
+
+The dialogue burning system converts captions into styled boxes/bubbles with automated text wrapping:
+
+```typescript
+export async function burnCaptionsToSlide(
+  slide: Slide,
+  canvasWidth: number = 1080,
+  canvasHeight: number = 1080
+): Promise<string> {
+  const canvas = document.createElement("canvas");
+  canvas.width = canvasWidth;
+  canvas.height = canvasHeight;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return slide.imageUrl;
+
+  // 1. Draw base frame image
+  const img = await loadImage(slide.imageUrl);
+  ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+
+  // 2. Iterate captions and render speech/narration overlays
+  for (const caption of slide.captions) {
+    renderCaptionBox(ctx, caption, canvasWidth, canvasHeight);
+  }
+
+  return canvas.toDataURL("image/jpeg", 0.92);
+}
+```
+
+## 4. Sub-Studio Integration
+- **Bubble Studio**: Advanced freehand vector speech bubble layers (`Bubba1StudioModal.tsx`).
+- **Text Studio**: Warped typography and 3D text extrusions (`ShapeStudioModal.tsx`).
+- **Sync Backing**: Baked frames automatically sync with `storyboardSlots` and `storyboardSlices` in `App.tsx`.
+
+## 5. Automated Text Wrapping & Box Measurement Algorithm
+
+Given a maximum container width $W_{\text{max}}$, font size $S_F$, line height $H_L = 1.35 \times S_F$, and padding $P$:
+
+$$\text{Usable Text Width } W_{\text{text}} = W_{\text{max}} - 2P$$
+
+```typescript
+function wrapText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  maxWidth: number
+): string[] {
+  const words = text.split(" ");
+  const lines: string[] = [];
+  let currentLine = words[0] || "";
+
+  for (let i = 1; i < words.length; i++) {
+    const word = words[i];
+    const testLine = currentLine + " " + word;
+    const metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth) {
+      lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = testLine;
+    }
+  }
+  lines.push(currentLine);
+  return lines;
+}
+```

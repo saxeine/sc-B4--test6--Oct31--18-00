@@ -1,0 +1,107 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# ShapeStudio Module Documentation (Part 2 of 4)
+## Data Schemas & HTML5 Canvas Rendering Pipeline
+
+### 5. Core Data Schemas & Type Definitions
+
+```typescript
+export interface ShapeLayer {
+  id: string;
+  name?: string;
+  type: "rect" | "circle" | "bubble" | "text" | "arrow" | "curvedArrow" |
+        "curvedArrowLeft" | "doubleArrow" | "tripleArrow" | "line" |
+        "star" | "heart" | "pointer" | "icon" | "image";
+  imageUrl?: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  rotation: number;     // Degrees (0..360)
+  opacity: number;      // 0.0 to 1.0
+  zIndex: number;
+  fillColor: string;    // Hex / RGBA
+  strokeColor: string;  // Hex / RGBA
+  strokeWidth: number;
+  borderRadius?: number;
+  lineStyle: "solid" | "dashed" | "dotted";
+  text?: string;
+  fontSize?: number;
+  fontFamily?: string;
+  textColor?: string;
+  textAlign?: "left" | "center" | "right";
+  isBold?: boolean;
+  isItalic?: boolean;
+  bubbleTail?: { x: number; y: number }; // Tail tip relative offset
+  bubbleType?: "speech" | "thought" | "shout" | "caption" | "box";
+  iconName?: string;
+  visible?: boolean;
+  locked?: boolean;
+  skewX?: number;
+  skewY?: number;
+}
+
+export interface FreehandLine {
+  id: string;
+  points: { x: number; y: number }[];
+  color: string;
+  width: number;
+  opacity: number;
+  arrowEnd?: boolean;
+  isSmudge?: boolean;
+  isSprayCan?: boolean;
+  isBlur?: boolean;
+  penShape?: "standard" | "dots" | "stars" | "cars" | "hearts" | "sparkles" | "arrows";
+}
+
+export interface MultiCropItem {
+  id: string;
+  frameIdx: number;
+  crop: {
+    unit: "%" | "px";
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
+  cropShape: "rect" | "oval";
+  label?: string;
+}
+
+export interface FrameData {
+  [frameIdx: number]: {
+    layers: ShapeLayer[];
+    freehandLines: FreehandLine[];
+    multiCrops?: MultiCropItem[];
+  };
+}
+```
+
+### 6. HTML5 Canvas Render & Composition Pipeline
+ShapeStudio uses a dual-rendering approach:
+1. **Interactive SVG & DOM Overlay Stage**: Renders active vector layers, transform bounding boxes, rotation handles, and tail control points using high-performance React components inside `stageRef` for sub-pixel accuracy and real-time interaction.
+2. **Offscreen Canvas Bake Engine**: When baking a frame or exporting PNG assets, `renderFrameToCanvas()` compiles all layers into a single 2D Canvas context (`CanvasRenderingContext2D`):
+
+```
+Rendering Pipeline Sequence:
+1. Clear Offscreen Canvas (width = baseImage.naturalWidth, height = baseImage.naturalHeight).
+2. Draw Base Image Frame (ctx.drawImage).
+3. Render Freehand Lines Stack:
+   - Iterate lines -> beginPath() -> move/lineTo points -> stroke().
+   - Apply special pen shapes (dots, stars, sparkles, spray particles) along bezier curve interpolation.
+4. Render Vector Layer Stack sorted by zIndex ascending:
+   - Save context state (ctx.save()).
+   - Apply transforms: ctx.translate(layer.x + w/2, layer.y + h/2) -> ctx.rotate(rotRad) -> ctx.translate(-w/2, -h/2).
+   - Draw Shape / Path (Rect, Circle, Star, Heart, Arrow) with fillStyle & strokeStyle.
+   - For Speech Bubbles: Path bubble body -> compute tail path to bubbleTail point -> fill & stroke combined path.
+   - For Text: Measure text wrapping -> set font string -> fillText / strokeText.
+   - Restore context state (ctx.restore()).
+5. Export Result: canvas.toDataURL("image/png") or canvas.toBlob().
+```
+
+===================================================================================
+CONTINUATION HOOK:
+This is Part 2 of 4 of the ShapeStudio technical specification.
+To inspect the Detailed Toolset Specifications, see 'docs/ShapeStudio3.txt'.
+===================================================================================
+

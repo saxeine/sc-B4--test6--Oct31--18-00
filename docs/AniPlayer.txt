@@ -1,0 +1,185 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# AniPlayer Animation & MediaRecorder Suite Manual
+
+## 1. Overview & Architectural Role
+AniPlayer (`FramePlayerModal.tsx`) provides real-time canvas animation playback and video encoding for storyboard frame sequences. It supports custom frame rates (1 to 60 FPS), loop modes (`loop`, `ping-pong`, `once`), transition effects (`none`, `crossfade`, `slide-left`, `slide-right`, `zoom`, `fade-black`), auto-fit responsive stage calculation, and high-definition video export via the HTML5 `MediaRecorder` API.
+
+```
++-------------------------------------------------------------------------------+
+|                            FramePlayerModal (AniPlayer)                       |
+|                                                                               |
+|  +----------------------------+             +------------------------------+  |
+|  | Storyboard Frame Array     |             | Playback Controls & FPS      |  |
+|  | (storyboardSlots)          |             | (Play/Pause, Loop, Ping-Pong)|  |
+|  +--------------+-------------+             +--------------+---------------+  |
+|                 |                                          |                  |
+|                 +--------------------+---------------------+                  |
+|                                      |                                        |
+|                                      v                                        |
+|                       +------------------------------+                        |
+|                       |  Canvas Transition Engine    |                        |
+|                       |  (Crossfade, Slide, Zoom)    |                        |
+|                       +--------------+---------------+                        |
++--------------------------------------|----------------------------------------+
+                                       v
+                       +------------------------------+
+                       | MediaRecorder WebM / MP4     |
+                       | Video Export Pipeline        |
+                       +------------------------------+
+```
+
+## 2. Playback State Engine & Responsive Viewport
+
+```typescript
+export interface FramePlayerModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  storyboardSlots: { url: string; name: string; story?: string }[];
+  storyboardSlices?: { url: string; name: string }[];
+  onResendFrameToCarve?: (url: string) => void;
+  onResendFrameToCrop?: (url: string) => void;
+}
+```
+
+### Core Playback States & Adaptability
+- `isPlaying`: boolean indicating active ticker execution.
+- `currentFrameIdx`: index $i \in [0, N-1]$ of the currently visible frame.
+- `fps`: playback rate (default 12 FPS, range 1-60).
+- `direction`: 1 for forward playback, -1 for ping-pong reverse.
+- `transitionEffect`: string choice of active blend transition (`none`, `crossfade`, `slide-left`, `slide-right`, `zoom`, `fade-black`).
+- `loopMode`: `loop` (restart from frame 0), `ping-pong` (reverse direction at ends), `once` (stop at last frame).
+- **Auto-Fit Stage**: Responsive container constrained dynamically (`max-w-[min(96vw,1280px)]`, `max-h-[52vh]`) to ensure the animation stage seamlessly adapts across laptop, tablet, and high-resolution monitors.
+- **Double-Click Playback Toggle**: Double-clicking or double-tapping the main stage toggles playback instantly without needing toolbar clicks.
+
+
+## 3. Transition Rendering (`drawTransitionToCanvas`)
+
+Transition effects blend outgoing frame $F_A$ and incoming frame $F_B$ over transition progress $t \in [0, 1]$:
+
+```typescript
+function drawTransition(
+  ctx: CanvasRenderingContext2D,
+  imgA: HTMLImageElement,
+  imgB: HTMLImageElement,
+  progress: number,
+  effect: TransitionEffect,
+  w: number,
+  h: number
+) {
+  ctx.clearRect(0, 0, w, h);
+
+  switch (effect) {
+    case 'crossfade':
+      ctx.globalAlpha = 1;
+      ctx.drawImage(imgA, 0, 0, w, h);
+      ctx.globalAlpha = progress;
+      ctx.drawImage(imgB, 0, 0, w, h);
+      ctx.globalAlpha = 1;
+      break;
+
+    case 'slide-left':
+      ctx.drawImage(imgA, -progress * w, 0, w, h);
+      ctx.drawImage(imgB, w - progress * w, 0, w, h);
+      break;
+
+    case 'slide-right':
+      ctx.drawImage(imgA, progress * w, 0, w, h);
+      ctx.drawImage(imgB, -w + progress * w, 0, w, h);
+      break;
+
+    case 'zoom':
+      ctx.drawImage(imgA, 0, 0, w, h);
+      ctx.save();
+      ctx.globalAlpha = progress;
+      const scale = 0.8 + 0.2 * progress;
+      ctx.translate(w / 2, h / 2);
+      ctx.scale(scale, scale);
+      ctx.drawImage(imgB, -w / 2, -h / 2, w, h);
+      ctx.restore();
+      break;
+
+    case 'fade-black':
+      if (progress < 0.5) {
+        ctx.drawImage(imgA, 0, 0, w, h);
+        ctx.fillStyle = `rgba(0, 0, 0, ${progress * 2})`;
+        ctx.fillRect(0, 0, w, h);
+      } else {
+        ctx.drawImage(imgB, 0, 0, w, h);
+        ctx.fillStyle = `rgba(0, 0, 0, ${(1 - progress) * 2})`;
+        ctx.fillRect(0, 0, w, h);
+      }
+      break;
+
+    default: // 'none'
+      ctx.drawImage(imgB, 0, 0, w, h);
+      break;
+  }
+}
+```
+
+## 4. Video Export Engine (`handleExportMovie`)
+Uses `canvas.captureStream(fps)` with `MediaRecorder` to record canvas buffers into a downloadable `video/webm` or `video/mp4` blob:
+
+```typescript
+export async function exportStoryboardVideo(
+  slots: { url: string }[],
+  fps: number = 12,
+  transitionDurationMs: number = 300
+): Promise<Blob> {
+  const width = 1080;
+  const height = 1080;
+  const offscreenCanvas = document.createElement("canvas");
+  offscreenCanvas.width = width;
+  offscreenCanvas.height = height;
+  const ctx = offscreenCanvas.getContext("2d")!;
+
+  const stream = offscreenCanvas.captureStream(fps);
+  const recorder = new MediaRecorder(stream, {
+    mimeType: getSupportedMimeType(),
+    videoBitsPerSecond: 5000000,
+  });
+
+  const chunks: Blob[] = [];
+  recorder.ondataavailable = (e) => {
+    if (e.data.size > 0) chunks.push(e.data);
+  };
+
+  recorder.start();
+
+  for (let i = 0; i < slots.length; i++) {
+    const img = await loadImage(slots[i].url);
+    ctx.drawImage(img, 0, 0, width, height);
+    await new Promise((r) => setTimeout(r, 1000 / fps));
+  }
+
+  recorder.stop();
+  return new Promise((resolve) => {
+    recorder.onstop = () => resolve(new Blob(chunks, { type: getSupportedMimeType() }));
+  });
+}
+```
+
+## 5. Frame Timing & Delta-Time Ticker
+To avoid browser frame drift, AniPlayer uses delta timestamp validation in `requestAnimationFrame`:
+
+```typescript
+let lastTime = performance.now();
+const interval = 1000 / fps;
+
+function tick(now: number) {
+  const delta = now - lastTime;
+  if (delta >= interval) {
+    lastTime = now - (delta % interval);
+    advanceFrame();
+  }
+  if (isPlaying) {
+    animFrameId = requestAnimationFrame(tick);
+  }
+}
+```
+
+## 6. Dynamic Bitrate Optimization
+Bitrate is dynamically calibrated to maintain visual crispness without frame stutter:
+
+$$B_{\text{target}} = \min\left(25,000,000, \, W \times H \times F \times 0.15\right) \text{ bits/sec}$$

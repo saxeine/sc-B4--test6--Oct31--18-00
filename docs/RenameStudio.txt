@@ -1,0 +1,130 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# Bulk Rename & Asset Manifest Engine Manual
+
+## 1. Overview & Components
+The Rename Studio suite provides advanced asset renaming, string formatting, RegEx replacement, sequential indexing, and drag-and-drop order organization.
+- **`BulkRenamePanel.tsx`**: Lightweight collapsible sidebar panel for rapid prefixing, suffixing, and quick regex cleanups.
+- **`BulkRenameModal.tsx`**: Enterprise-grade modal workspace supporting drag-and-drop reordering, filter-by-search, bulk preset macros, and real-time live diff previews.
+
+
+```
++-------------------------------------------------------------------------------+
+|                            BulkRenameModal Suite                              |
+|                                                                               |
+|  +---------------------------+              +------------------------------+  |
+|  | Transformation Rules      |              | Asset List & Live Diff Grid  |  |
+|  | (Prefix, RegEx, Indexing) |              | (Old Name -> New Name)       |  |
+|  +-------------+-------------+              +--------------+---------------+  |
+|                |                                           |                  |
+|                +---------------------+---------------------+                  |
+|                                      |                                        |
+|                                      v                                        |
+|                      +-------------------------------+                        |
+|                      |  Pure Transformation Function |                        |
+|                      |  transformName(name, idx)     |                        |
+|                      +---------------+---------------+                        |
++--------------------------------------|----------------------------------------+
+                                       v
+                       +-------------------------------+
+                       | Synced State & Manifest Output|
+                       +-------------------------------+
+```
+
+## 2. Multi-Step Transformation Engine (`transformName`)
+
+Renaming operations execute through a multi-stage transformation pipeline:
+
+```typescript
+export function transformName(
+  originalName: string,
+  index: number,
+  config: RenameConfig
+): string {
+  // 1. Separate file extension
+  const extMatch = originalName.match(/(\.[a-zA-Z0-9]+)$/);
+  const ext = extMatch ? extMatch[1] : '';
+  let nameWithoutExt = extMatch ? originalName.slice(0, -ext.length) : originalName;
+
+  // 2. Short-form Macro Substitution
+  if (config.useShortForms) {
+    nameWithoutExt = applyShortForms(nameWithoutExt);
+  }
+
+  // 3. RegEx or String Replacement
+  if (config.searchPattern) {
+    try {
+      const flags = config.caseSensitive ? 'g' : 'gi';
+      const regex = new RegExp(config.searchPattern, flags);
+      nameWithoutExt = nameWithoutExt.replace(regex, config.replaceText || '');
+    } catch (e) {
+      // Graceful fallback on invalid user regex syntax
+    }
+  }
+
+  // 4. Case Formatting
+  nameWithoutExt = applyCaseFormat(nameWithoutExt, config.caseFormat);
+
+  // 5. Prefix & Suffix
+  let finalName = `${config.prefix || ''}${nameWithoutExt}${config.suffix || ''}`;
+
+  // 6. Sequential Indexing
+  if (config.enableIndexing) {
+    const paddedIndex = String(index + (config.startIndex || 1)).padStart(config.indexPadding || 2, '0');
+    finalName += `_${paddedIndex}`;
+  }
+
+  return finalName + ext;
+}
+```
+
+## 3. Short-Form Macro Dictionary
+
+```typescript
+export const SHORT_FORM_MAP: Record<string, string> = {
+  background: 'bg',
+  character: 'char',
+  foreground: 'fg',
+  storyboard: 'sb',
+  illustration: 'ill',
+  panel: 'pnl',
+  frame: 'frm',
+};
+```
+
+## 4. Slice Pool & Storyboard Slot Synchronization Pipeline
+
+When applying renames with `syncSlots: true`, the state updater maps updated filenames to active URLs across both state entities:
+
+```typescript
+export function applyRenameToState(
+  renamedManifest: { url: string; oldName: string; newName: string }[],
+  currentSlices: { id: string; name: string; url: string }[],
+  currentSlots: { id: string; url: string; name: string; story?: string }[]
+) {
+  const nameMap = new Map(renamedManifest.map((item) => [item.url, item.newName]));
+
+  const updatedSlices = currentSlices.map((slice) => ({
+    ...slice,
+    name: nameMap.get(slice.url) || slice.name,
+  }));
+
+  const updatedSlots = currentSlots.map((slot) => ({
+    ...slot,
+    name: nameMap.get(slot.url) || slot.name,
+  }));
+
+  return { updatedSlices, updatedSlots };
+}
+```
+
+## 5. ZIP Export Filename Preservation & ZIP Naming Modal (`ZipNameModal`)
+
+To ensure renamed file names set in Bulk Rename Studio or Panel are strictly preserved during final ZIP file save/export:
+1. **`getFormattedFilename(rawName, idx, fallbackExt, filePrefix)`**:
+   - Strictly preserves exact case, characters, spaces, dashes, underscores, and existing file extensions set during renaming.
+   - Prevents auto-mangling, forced lowercasing, or unwanted `idx-` prefixes when custom names are present.
+2. **Interactive `ZipNameModal`**:
+   - Triggers automatically prior to ZIP downloading.
+   - Allows inline editing of the destination `.zip` archive name.
+   - Provides smart one-click suggestions (e.g. `[Default]`, `[Dated: YYYY-MM-DD]`, `[Item Count]`, `[Project Prefix]`).

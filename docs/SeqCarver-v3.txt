@@ -1,0 +1,126 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# SeqCarver Suite Architecture & Operations Manual
+
+## 1. Executive Summary & Suite Architecture
+SeqCarver is a comprehensive, browser-based image slicing, storyboard reconstruction, and visual asset production suite. Designed for artists, animators, graphic novelists, and webtoon creators, the platform enables pixel-precise slicing of multi-frame artwork, automated grid detection, layer-based asset management, screenwriting dialogue integration, vector bubble composition, typography warping, 3D perspective manipulation, and video animation export.
+
+The core application architecture operates entirely client-side using standard HTML5 Canvas APIs, IndexedDB state caching, and WebAssembly/Web Workers where required.
+
+```
++-----------------------------------------------------------------------------------+
+|                                 App.tsx (Main Hub)                                |
+|                                                                                   |
+|  +---------------------+   +-----------------------+   +-----------------------+  |
+|  |  Slicing Engine     |   | Storyboard Workspace  |   | IndexedDB Persistence |  |
+|  |  (Grid/Auto-Detect) |   | (Slots & Slices Gallery)| (idbStorage)          |  |
+|  +----------+----------+   +-----------+-----------+   +-----------+-----------+  |
+|             |                          |                           |              |
+|             +--------------------------+---------------------------+              |
++----------------------------------------+------------------------------------------+
+                                         |
+     +-----------------------------------+-----------------------------------+
+     |                                   |                                   |
+     v                                   v                                   v
++-----------------------+     +-----------------------+     +-----------------------+
+|  ScreenplayWriter     |     | Bubba1StudioModal     |     | ShapeStudioModal      |
+|  (Shot & Dialogue)    |     | (Bubble Studio)       |     | (Text Studio & Shapes)|
++-----------------------+     +-----------------------+     +-----------------------+
+     |                                   |                                   |
+     +-----------------------------------+-----------------------------------+
+     |                                   |                                   |
+     +-----------------------------------+-----------------------------------+
+     |                                   |                                   |
+     v                                   v                                   v
++-----------------------+     +-----------------------+     +-----------------------+
+| BulkRenameModal /     |     | FramePlayerModal      |     | Neo1StudioModal /     |
+| BulkRenamePanel       |     | (AniPlayer WebM)      |     | Canvas Engine         |
++-----------------------+     +-----------------------+     +-----------------------+
+```
+
+## 2. Core Operational Modes & Workspaces
+
+### Mode 1: Crop Mode (`mode: "crop"`)
+- **Canvas Sizing**: Configure exact canvas width, height, and background color.
+- **Interactive Cropping**: Freeform rectangle or circular/oval crop regions with sub-pixel handles.
+- **Multi-Crops Queue**: Stage multiple crop selections across images with batch extract to Slices or direct fill to Storyboard slots.
+- **Auto-Fit Stage**: Automatic calculation of viewport bounds for seamless scaling across ultra-wide, standard desktop, laptop, and tablet screens.
+
+### Mode 2: Carve Mode (`mode: "carve"`)
+- **Automated Grid Slicing**: Slice large master artwork into rows $\times$ columns with customizable margins and gutters.
+- **Auto-Detection (`autoDetectBorders`)**: Intelligently detects frame gutters and whitespace borders to compute optimal slicing margins.
+- **Naming Styles**: Prefix, suffix, zero-padded numbering, row-column tags (e.g. `R1C1`), and custom descriptors.
+
+### Mode 3: Storyboard Mode (`mode: "storyboard"`)
+- **Dual-View Workspace**:
+  - **Split View (`isStoryboardVisible: true`)**: Side-by-side view with Carved Slices sidebar on the left and interactive Storyboard Slot Grid on the right.
+  - **Expanded Carved Slices Gallery (`isStoryboardVisible: false`)**: Full-width asset gallery workspace with configurable multi-column layouts (2, 3, 4, 6, 8 columns), search filtering, and batch storyboard insertion tools.
+- **Carved Slices Show/Hide Toggle & Background Customization**:
+  - Show/Hide button to expand the carved slices panel and hide the storyboard, or restore split storyboard view.
+  - 9 Curated Background Presets: Slate Dark, Midnight Navy, Forest Emerald, Deep Indigo, Rich Charcoal, Warm Bronze, Deep Plum, Cyber Teal, Pitch Obsidian.
+  - Custom Color Picker & Hex Code input with real-time preview and reset option to easily distinguish slices from storyboard sections.
+- **Storyboard Slot Engine**:
+  - Dynamic slot counts with + / - controls and customizable slot preview sizes (sm, md, lg).
+  - Slot actions: Drag-and-drop ordering, duplicate slot, delete slot, replace image, resend to crop/carve, and studio launchers.
+  - Per-slot metadata: Shot name, story description, and clickable active link URLs.
+  - Batch insertion: Overwrite from Slot 1, Fill Empties, or Append to end.
+
+## 3. Screen Size Adaptability & Responsive Engine
+- **Auto-Fit Stage & Viewports**: Built-in `handleFitToScreen` calculation using `ResizeObserver` dynamically measures container dimensions and scales canvases, preview stages, and modal dialogs to fit any screen resolution and aspect ratio without overflow.
+- **Responsive Workspace Containers**:
+  - Sidebar dynamically bounded by `max-w-[min(48vw,700px)]` with quick collapse/expand toggle button.
+  - Modals bounded by `max-w-[min(98vw,1800px)]` and `max-h-[min(96vh,1050px)]`.
+  - Dedicated **Fit to Screen** toolbar button and `F` keyboard shortcut.
+
+## 4. Core State Management & Data Pipeline
+
+### Global State Entities
+- **`storyboardSlices`**: Array of `{ name: string, url: string }` representing the current pool of carved or imported image frames.
+- **`storyboardSlots`**: Array of `{ id: string, url: string, name: string, story: string, activeLinkUrl?: string }` tracking ordered items in the storyboard assembly board.
+- **`isStoryboardVisible`**: Boolean flag toggling between split view and expanded carved slices gallery.
+- **`carvedSlicesBgColor`**: String hex code representing the custom background theme for the carved slices panel.
+- **`carvedSlicesExpandedCols`**: Number of grid columns (2, 3, 4, 6, 8) in expanded gallery view.
+- **`slides`**: Array of `Slide` items (`{ id, shotNo, imageUrl, action, captions }`) maintained for screenplay rendering.
+
+### Persistence Engine (`idbStorage.ts`)
+The application utilizes IndexedDB via custom asynchronous promises for non-blocking storage of high-resolution base64 string images and JSON project states:
+- `saveStoredDefaultImage(dataUrl: string)`: Stores the active master slice canvas in local storage.
+- `saveStoredJson(key: string, data: any)`: Asynchronously serializes slots, slices, and slide dialogue configurations.
+- `getStoredJson(key: string)`: Rehydrates project state upon application launch.
+
+## 5. High-Performance Canvas Pipeline
+All slice generation, border trimming, bubble baking, text warping, and Chroma Key processing utilize direct `CanvasRenderingContext2D` operations.
+
+### Auto-Detection Slicing (`autoDetectBorders`)
+Scans image pixel borders looking for uniform background color thresholds (e.g. whitespace or black gutters) to automatically calculate optimal grid margins (`marginLeft`, `marginRight`, `marginTop`, `marginBottom`) and row/column gaps (`gapX`, `gapY`).
+
+## 6. Integrated Studio Modules
+1. **Screenplay Studio (`ScreenplayWriter.tsx`)**: Manages script formatting, shot numbers, actor dialogue, and caption burning directly onto frame canvases.
+2. **Bubble Studio (`Bubba1StudioModal.tsx`)**: Provides layer-based vector speech bubbles, thought clouds, narrative boxes, cubic bezier tails, and freehand drawing.
+3. **Shape & Text Studio (`ShapeStudioModal.tsx`)**: Offers text warping (arc, bulge, wave, flag), 3D depth extrusion, gradients, and custom shape vectors with in-place crop and auto-fit viewport.
+4. **Rename Studio (`BulkRenameModal.tsx` & `BulkRenamePanel.tsx`)**: Implements multi-step RegEx search-and-replace, case formatting, short-form macro mappings, and drag-and-drop reordering.
+5. **AniPlayer (`FramePlayerModal.tsx`)**: Frame-by-frame animation player with crossfade, slide, and zoom transitions, exporting to WebM using `MediaRecorder`.
+6. **NEO-1 Canvas Engine (`Neo1StudioModal.tsx` & `neo1-app/`)**: Layered canvas workspace featuring 3D perspective tilt, Chroma Key green/blue screen removal, skew transformations, background replacement, and Fit to Screen engine.
+
+## 7. Grid Slicing Coordinate & Geometry Mathematics
+
+### Cell Dimensions Calculation
+Given a master canvas of dimensions $W \times H$, margin parameters $M_L, M_R, M_T, M_B$, grid layout parameters $C$ (columns), $R$ (rows), and gap sizes $G_X, G_Y$:
+
+$$\text{Usable Width } W_{\text{use}} = W - M_L - M_R - (C - 1) \cdot G_X$$
+$$\text{Usable Height } H_{\text{use}} = H - M_T - M_B - (R - 1) \cdot G_Y$$
+
+$$\text{Cell Width } W_{\text{cell}} = \frac{W_{\text{use}}}{C}$$
+$$\text{Cell Height } H_{\text{cell}} = \frac{H_{\text{use}}}{R}$$
+
+### Pixel Extraction Offsets for Cell $(r, c)$
+For row $r \in [0, R-1]$ and column $c \in [0, C-1]$:
+
+$$X_{\text{src}}(c) = M_L + c \cdot (W_{\text{cell}} + G_X)$$
+$$Y_{\text{src}}(r) = M_T + r \cdot (H_{\text{cell}} + G_Y)$$
+
+## 8. Export & Packaging Ecosystem
+- **ZIP Packaging (`JSZip`)**: Bundles slices, storyboard frames, and screenplay metadata into downloadable `.zip` archives.
+- **Custom ZIP Naming (`ZipNameModal.tsx`)**: Interactive naming dialog preserving user-defined archive names with timestamp, count, and project presets.
+- **Preserved Filenames**: Retains original and renamed filenames exactly without forced lowercasing or index duplication.
+

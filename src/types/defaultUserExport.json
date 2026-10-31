@@ -1,0 +1,4356 @@
+{
+  "version": "3.0",
+  "appName": "SeqCarver Studio",
+  "exportType": "button_and_label_customization_backup",
+  "timestamp": "2026-10-17T17:52:27.973Z",
+  "dateFormatted": "17/10/2026, 19:46:13",
+  "buttonCount": 430,
+  "totalButtonsConfigured": 430,
+  "totalSectionsCovered": 21,
+  "globalSettings": {
+    "stripBackground": "#000000",
+    "groupSettings": {
+      "asset_pool": "inherit",
+      "modals": "inherit",
+      "section_labels": "inherit",
+      "canvas": "inherit",
+      "resample_studio": "inherit",
+      "anicomper4": "icon_only",
+      "creative_studio": "inherit",
+      "storyboard": "inherit",
+      "header": "icon_only",
+      "aniplayer": "inherit",
+      "multicrop": "inherit",
+      "button_customizer": "inherit",
+      "zoom_studio": "inherit",
+      "carve": "inherit",
+      "crop": "inherit",
+      "front_page_ad_panels": "icon_only",
+      "modes": "icon_only",
+      "sharpener_studio": "inherit"
+    },
+    "showSlotHeaders": false,
+    "stripPanelBackground": "#000000",
+    "showCropDragHandles": false,
+    "showRightClickHints": true,
+    "showAniPlayerDragHandles": false,
+    "buttonOrder": [
+      "header_logo",
+      "header_studio_palette",
+      "header_anim_player",
+      "header_screenplay",
+      "header_rename_tag",
+      "header_reset_all",
+      "mode_crop",
+      "mode_carve",
+      "mode_storyboard",
+      "crop_2canvas",
+      "crop_and_go",
+      "crop_2sbrd",
+      "crop_replace_sbrd",
+      "crop_select_all",
+      "crop_undo",
+      "crop_redo",
+      "crop_revert",
+      "crop_history_visualizer",
+      "multiCropAdd",
+      "crop_mesh_tool",
+      "crop_mesh_cut",
+      "multiCropSendAllGrid",
+      "multiCropToSlices",
+      "multiCropStayInCrop",
+      "multiCropItemSendAsset",
+      "multiCropItemSendSlot",
+      "multiCropClearAll",
+      "carve_select_all",
+      "carve_send_selected",
+      "carve_send_all",
+      "carve_zip_selected",
+      "carve_zip_all",
+      "carve_auto_detect",
+      "carve_grid_cfg_badge",
+      "carve_cell_padding_badge",
+      "carve_auto_size_grid",
+      "carve_detect_edges",
+      "carve_lock_cuts",
+      "carve_reset_cuts",
+      "canvas_fit_screen",
+      "canvas_zoom_out",
+      "canvas_zoom_badge",
+      "canvas_zoom_in",
+      "canvas_pan_tool",
+      "canvas_history_visualizer",
+      "canvas_toggle_left_sidebar",
+      "storyboard_toggle_visibility",
+      "canvas_clear_cuts",
+      "canvas_toggle_split_dock",
+      "canvas_toggle_split_orientation",
+      "canvas_upload_carve",
+      "canvas_upload_storyboard",
+      "splits_cycle_size",
+      "splits_cycle_layout",
+      "creative_studio_button_customizer",
+      "creative_studio_the_log",
+      "creative_studio_img_desc",
+      "creative_studio_neo1",
+      "creative_studio_bubba1",
+      "creative_studio_shape_studio",
+      "creative_studio_screenplay",
+      "creative_studio_rename_studio",
+      "creative_studio_image_sharpener",
+      "creative_studio_variations_studio",
+      "creative_studio_folder_manage",
+      "modal_expand_preview_sharpener",
+      "modal_expand_preview_variations",
+      "header_rotation_controls",
+      "rot_btn_home",
+      "rot_btn_return_home",
+      "rot_btn_stop_all",
+      "rot_btn_start_all",
+      "rot_btn_clear_all",
+      "rot_btn_box1_series",
+      "rot_btn_box9_series",
+      "rot_btn_reset_9box",
+      "rot_preset_synthwave",
+      "rot_preset_cyberpunk",
+      "rot_preset_comic_art",
+      "rot_preset_neon_grid",
+      "header_load_image",
+      "load_img_upload_local",
+      "load_img_multi_upload",
+      "load_target_carver",
+      "load_target_single_box",
+      "load_target_spread_3x3",
+      "load_target_spread_4x4",
+      "load_target_storyboard",
+      "load_img_import_json",
+      "load_img_export_json",
+      "load_img_save_pdf",
+      "load_img_btn_load_url",
+      "storyboard_top_assets_title",
+      "storyboard_top_select_all",
+      "storyboard_top_bg_color",
+      "storyboard_top_smart_trim",
+      "storyboard_top_expand_carved",
+      "storyboard_top_clear_assets",
+      "storyboard_top_overwrite",
+      "storyboard_top_fill_empties",
+      "storyboard_top_append",
+      "storyboard_top_join",
+      "storyboard_sel_count",
+      "storyboard_sel_clear",
+      "storyboard_sel_rename",
+      "storyboard_sel_auto_slice",
+      "storyboard_sel_zip",
+      "storyboard_sel_insert_label",
+      "storyboard_sel_overwrite",
+      "storyboard_sel_fill",
+      "storyboard_sel_append",
+      "storyboard_sel_delete",
+      "storyboard_pool_header",
+      "storyboard_pool_reverse",
+      "storyboard_pool_clear",
+      "creative_studio_header_title",
+      "creative_studio_save_default",
+      "creative_studio_tab_all",
+      "creative_studio_tab_utility",
+      "creative_studio_tab_creative",
+      "creative_studio_tab_advanced",
+      "creative_studio_tab_color",
+      "creative_studio_tab_style",
+      "creative_studio_tab_layout",
+      "creative_studio_tab_tools",
+      "creative_studio_zoom_studio",
+      "modal_expand_sharpener",
+      "modal_expand_zoom_studio",
+      "modal_expand_preview_zoom_studio",
+      "zoom_studio_download_zip",
+      "zoom_studio_download_gif",
+      "zoom_studio_send_storyboard",
+      "carve_smart_trim_export",
+      "carve_top_smart_trim",
+      "carve_toggle_grid_labels",
+      "btn_cust_modal_header_title",
+      "btn_cust_modal_tab_customize",
+      "btn_cust_modal_tab_groups",
+      "btn_cust_modal_tab_optimizer",
+      "btn_cust_modal_grouping_btn",
+      "btn_cust_modal_tab_snapshots",
+      "btn_cust_modal_set_default",
+      "btn_cust_modal_zero_text",
+      "btn_cust_modal_center_window",
+      "btn_cust_modal_close",
+      "btn_cust_modal_save_json",
+      "btn_cust_modal_load_json",
+      "btn_cust_cat_all",
+      "btn_cust_cat_toolbars",
+      "btn_cust_cat_multicrop",
+      "btn_cust_cat_crop",
+      "btn_cust_cat_carve",
+      "btn_cust_cat_header",
+      "btn_cust_cat_modes",
+      "btn_cust_cat_canvas",
+      "btn_cust_reset_single",
+      "btn_cust_reset_label_default",
+      "btn_cust_reset_icon_default",
+      "btn_cust_sort_category",
+      "btn_cust_reset_order",
+      "btn_cust_download_backup",
+      "btn_cust_reset_all_custom",
+      "btn_cust_reset_factory",
+      "btn_cust_restore_user_default",
+      "btn_cust_save_as_default_footer",
+      "btn_cust_close_footer",
+      "header_the_log",
+      "header_upload_main",
+      "header_default_image_badge",
+      "crop_circular_toggle",
+      "crop_aspect_free",
+      "crop_aspect_1_1",
+      "crop_aspect_16_9",
+      "crop_aspect_9_16",
+      "crop_aspect_4_3",
+      "crop_aspect_3_4",
+      "join_images_tool",
+      "crop_auto_slice",
+      "crop_smart_trim",
+      "smart_trim_tool",
+      "auto_slice_tool",
+      "messhi_grid_tool",
+      "krums_loader_tool",
+      "grid_mesh_studio_tool",
+      "multiCropItemDelete",
+      "freestyle_tool_select",
+      "freestyle_tool_square",
+      "freestyle_tool_polygon",
+      "freestyle_tool_trapeze",
+      "freestyle_duplicate_all",
+      "freestyle_delete_all",
+      "freestyle_merge_all",
+      "freestyle_finish_polygon",
+      "carve_auto_slice",
+      "carve_smart_trim",
+      "carve_clear_cuts",
+      "carve_inc_rows",
+      "carve_dec_rows",
+      "carve_inc_cols",
+      "carve_dec_cols",
+      "carve_origin_tl",
+      "carve_origin_tr",
+      "carve_origin_bl",
+      "carve_origin_br",
+      "carve_flow_ltr",
+      "carve_flow_ttb",
+      "carve_line_solid",
+      "carve_line_dashed",
+      "carve_line_dotted",
+      "storyboard_header_title",
+      "storyboard_add_slide",
+      "storyboard_import_json",
+      "storyboard_export_json",
+      "storyboard_save_pdf",
+      "storyboard_play_anim",
+      "storyboard_clear_all",
+      "storyboard_trim_all_assets",
+      "storyboard_slices_smart_trim",
+      "storyboard_auto_goto",
+      "storyboard_toggle_grid_view",
+      "storyboard_slot_prev",
+      "storyboard_slot_next",
+      "storyboard_slot_duplicate",
+      "storyboard_slot_delete",
+      "storyboard_slot_expand",
+      "storyboard_slot_replace",
+      "storyboard_slot_tag",
+      "asset_pool_header_title",
+      "asset_pool_select_all",
+      "asset_pool_deselect_all",
+      "asset_pool_send_selected",
+      "asset_pool_send_all",
+      "asset_pool_zip_selected",
+      "asset_pool_zip_all",
+      "asset_pool_delete_selected",
+      "asset_pool_clear_all",
+      "asset_pool_sort_az",
+      "asset_pool_sort_za",
+      "asset_pool_sort_recent",
+      "asset_pool_item_send",
+      "asset_pool_item_delete",
+      "asset_pool_item_expand",
+      "creative_studio_auto_slice",
+      "creative_studio_smart_trim",
+      "creative_studio_messhi",
+      "creative_studio_krums",
+      "creative_studio_grid_mesh",
+      "creative_studio_join_images",
+      "creative_studio_toggle_tags",
+      "creative_studio_add_folder",
+      "label_header_section",
+      "label_workspace_toolbar",
+      "label_crop_settings",
+      "label_grid_settings",
+      "label_multicrop_section",
+      "label_storyboard_section",
+      "label_asset_pool_section",
+      "label_splits_dock_section",
+      "label_trimfx_settings",
+      "label_naming_numbering",
+      "modal_player_play",
+      "modal_player_prev",
+      "modal_player_next",
+      "modal_player_loop",
+      "modal_player_export_gif",
+      "modal_player_export_mp4",
+      "modal_player_close",
+      "modal_rename_apply",
+      "modal_rename_close",
+      "modal_expand_prev",
+      "modal_expand_next",
+      "modal_expand_download",
+      "modal_expand_close",
+      "modal_export_json_confirm",
+      "modal_export_json_cancel",
+      "modal_log_clear",
+      "modal_log_copy",
+      "modal_log_close",
+      "modal_zip_confirm",
+      "modal_zip_cancel",
+      "btn_cust_modal_restore_saved",
+      "btn_cust_modal_quick_restore_saved",
+      "btn_cust_sort_alpha",
+      "crop_line_draw_tool",
+      "crop_studio_multi_crop",
+      "crop_studio_grid_mesh",
+      "crop_studio_straight_line_slicer",
+      "creative_studio_multi_crop",
+      "creative_studio_straight_line_slicer",
+      "crop_aspect_3_2",
+      "crop_aspect_circle",
+      "crop_aspect_oval",
+      "crop_sb_frame_prev",
+      "crop_sb_frame_counter",
+      "crop_sb_frame_next",
+      "crop_sb_frame_delete",
+      "crop_ss_send_direct",
+      "crop_ss_apply_back",
+      "crop_ss_cancel_back",
+      "crop_mesh_close",
+      "crop_mesh_mode_uniform",
+      "crop_mesh_mode_freestyle",
+      "storyboard_download_zip",
+      "storyboard_expand_slices",
+      "storyboard_clear_assets",
+      "storyboard_matrix_title",
+      "storyboard_select_all",
+      "storyboard_tool_toggle_panel",
+      "storyboard_tool_lock",
+      "storyboard_tool_drop_action",
+      "storyboard_tool_auto_number",
+      "storyboard_tool_view_cycle",
+      "storyboard_tool_reverse",
+      "storyboard_tool_duplicate",
+      "storyboard_tool_slot_size",
+      "storyboard_tool_slot_headers",
+      "storyboard_tool_strip_bg",
+      "storyboard_tool_player",
+      "storyboard_tool_rename",
+      "storyboard_tool_clear_empty",
+      "storyboard_tool_clear",
+      "storyboard_tool_operations",
+      "ad_panel_btn_custom_spread_studio",
+      "storyboard_view_cycler",
+      "creative_studio_restore_setup",
+      "label_storyboard_matrix",
+      "label_define_canvas_crop",
+      "label_crop_storyboard_frame",
+      "label_crop_area_header",
+      "label_aspect_ratio_header",
+      "label_quick_tools",
+      "label_trimfx_status",
+      "modal_expand_neo1",
+      "modal_expand_bubba1",
+      "modal_expand_shapestudio",
+      "modal_expand_resend_crop",
+      "ani_play_reverse",
+      "ani_play_pause",
+      "ani_step_next",
+      "ani_play_fwd",
+      "ani_loop_mode",
+      "ani_export_mp4",
+      "ani_export_gif",
+      "ani_export_webm",
+      "ani_export_start",
+      "ani_source_storyboard",
+      "ani_source_slices",
+      "ani_reset_layout",
+      "label_ani_title",
+      "label_ani_speed",
+      "label_ani_transitions",
+      "label_ani_export",
+      "ani_toggle_panels",
+      "ani_close_player",
+      "ani_resend_frame",
+      "canvas_toggle_grid_labels",
+      "canvas_grid_label_presets",
+      "creative_studio_mini_customizer",
+      "creative_studio_resample_studio",
+      "ad_panel_header_title",
+      "ad_panel_label_live_simulation",
+      "ad_panel_toggle_interactive_mode",
+      "ad_panel_btn_exit_fullscreen",
+      "ad_panel_grid_overview_title",
+      "ad_panel_tab_multi_spread",
+      "ad_panel_tab_storyboard",
+      "ad_panel_tab_rotation",
+      "ad_panel_tab_links",
+      "ad_panel_btn_spread_target_9",
+      "ad_panel_btn_upload_spread_9",
+      "ad_panel_btn_upload_panel",
+      "ad_panel_btn_send_to_carver",
+      "ad_panel_btn_clear_image",
+      "ad_panel_label_advanced_spread_options",
+      "ad_panel_btn_change_target_image",
+      "ad_panel_label_quick_spread_nbox",
+      "ad_panel_label_target_spread_image",
+      "ad_panel_label_spread_engine_title",
+      "ad_panel_label_spread_engine_desc",
+      "ad_panel_btn_mode_toggle",
+      "ad_panel_btn_dock_side",
+      "ad_panel_btn_minimize",
+      "ad_panel_btn_minimized_pill",
+      "ad_panel_btn_close",
+      "ad_panel_btn_test_hover",
+      "ad_panel_btn_reset_spread_overview",
+      "ad_panel_switcher_btn_1",
+      "ad_panel_switcher_btn_2",
+      "ad_panel_switcher_btn_3",
+      "ad_panel_switcher_btn_4",
+      "ad_panel_switcher_btn_5",
+      "ad_panel_switcher_btn_6",
+      "ad_panel_switcher_btn_7",
+      "ad_panel_switcher_btn_8",
+      "ad_panel_switcher_btn_9",
+      "ad_panel_btn_n_spread_9",
+      "ad_panel_btn_n_spread_8",
+      "ad_panel_btn_n_spread_7",
+      "ad_panel_btn_n_spread_6",
+      "ad_panel_btn_n_spread_5",
+      "ad_panel_btn_n_spread_4",
+      "ad_panel_btn_default_spread_9",
+      "ad_panel_btn_default_spread_8",
+      "ad_panel_btn_default_spread_7",
+      "ad_panel_btn_default_spread_6",
+      "ad_panel_btn_default_spread_5",
+      "ad_panel_btn_default_spread_4",
+      "ad_panel_btn_reset_9_box",
+      "ad_panel_btn_save_complete_setup",
+      "ad_panel_btn_rotation_toggle",
+      "ad_panel_btn_clear_rotation_playlist",
+      "ad_panel_btn_remove_rotation_frame",
+      "ad_panel_btn_add_active_to_rotation",
+      "ad_panel_btn_link_target_blank",
+      "ad_panel_btn_link_target_self",
+      "ad_panel_btn_hover_fx_none",
+      "ad_panel_btn_hover_fx_spin",
+      "ad_panel_btn_hover_fx_change_image",
+      "ad_panel_btn_remove_hover_image",
+      "crop_panel_fullscreen_toggle",
+      "zoom_studio_label_title",
+      "zoom_studio_frame_prev",
+      "zoom_studio_frame_next",
+      "zoom_studio_upload_image",
+      "zoom_studio_reset_upload",
+      "zoom_studio_reset_defaults",
+      "zoom_studio_toggle_controls",
+      "zoom_studio_regenerate",
+      "zoom_studio_close",
+      "zoom_studio_play_pause",
+      "zoom_studio_speed_5",
+      "zoom_studio_speed_10",
+      "zoom_studio_speed_16",
+      "zoom_studio_speed_24",
+      "zoom_studio_compare_orig",
+      "zoom_studio_show_controls_float",
+      "zoom_studio_tab_zoom",
+      "zoom_studio_tab_effects",
+      "zoom_studio_tab_presets",
+      "zoom_studio_label_extra_frames",
+      "zoom_studio_extra_frames_dec",
+      "zoom_studio_extra_frames_inc",
+      "zoom_studio_quick_frames_3",
+      "zoom_studio_quick_frames_5",
+      "zoom_studio_quick_frames_8",
+      "zoom_studio_quick_frames_12",
+      "zoom_studio_quick_frames_16",
+      "zoom_studio_label_quick_presets",
+      "zoom_studio_view_all_presets",
+      "zoom_studio_download_active_frame",
+      "zoom_studio_copy_frame",
+      "zoom_studio_replace_frame",
+      "sharpener_studio_label_title",
+      "sharpener_studio_prev_slice",
+      "sharpener_studio_next_slice",
+      "sharpener_studio_view_split",
+      "sharpener_studio_view_side_by_side",
+      "sharpener_studio_view_enhanced",
+      "sharpener_studio_hold_original",
+      "sharpener_studio_reset",
+      "sharpener_studio_close",
+      "sharpener_studio_zoom_out",
+      "sharpener_studio_zoom_in",
+      "sharpener_studio_zoom_fit",
+      "sharpener_studio_label_presets",
+      "sharpener_studio_tab_sharpness",
+      "sharpener_studio_tab_clarity",
+      "sharpener_studio_tab_color",
+      "sharpener_studio_scale_1x",
+      "sharpener_studio_scale_1_5x",
+      "sharpener_studio_scale_2x",
+      "sharpener_studio_scale_3x",
+      "sharpener_studio_scale_4x",
+      "sharpener_studio_apply_current",
+      "sharpener_studio_apply_new_frame",
+      "sharpener_studio_apply_asset_pool",
+      "sharpener_studio_apply_canvas",
+      "sharpener_studio_download_png",
+      "resample_studio_label_title",
+      "resample_studio_frame_prev",
+      "resample_studio_frame_next",
+      "resample_studio_view_split",
+      "resample_studio_view_side_by_side",
+      "resample_studio_view_enhanced",
+      "resample_studio_hold_original",
+      "resample_studio_zoom_out",
+      "resample_studio_zoom_reset",
+      "resample_studio_zoom_in",
+      "resample_studio_close",
+      "resample_studio_tab_presets",
+      "resample_studio_tab_resolution",
+      "resample_studio_tab_degrain",
+      "resample_studio_tab_deblur",
+      "resample_studio_tab_tone",
+      "resample_studio_scale_1x",
+      "resample_studio_scale_1_25x",
+      "resample_studio_scale_1_5x",
+      "resample_studio_scale_2x",
+      "resample_studio_scale_3x",
+      "resample_studio_scale_4x",
+      "resample_studio_aspect_lock",
+      "resample_studio_download",
+      "resample_studio_apply_canvas",
+      "resample_studio_apply_new_frame",
+      "resample_studio_apply_replace",
+      "krums_mesh_studio_tool",
+      "modal_expand_resample",
+      "modal_expand_preview_resample",
+      "sharpener_studio_slice_prev",
+      "sharpener_studio_slice_next",
+      "btn_crop_set_default_state",
+      "btn_crop_reset_layout",
+      "carve_snapshot_storyboard_first",
+      "storyboard_tool_save_default_state",
+      "storyboard_tool_restore_default_state",
+      "storyboard_asset_sort",
+      "storyboard_asset_save_default",
+      "canvas_snapshot_storyboard_first",
+      "creative_studio_mouse_over_studio",
+      "the_log_download_pdf",
+      "the_log_add_entry",
+      "the_log_close",
+      "the_log_search_clear",
+      "the_log_filter_all",
+      "the_log_filter_feature",
+      "the_log_filter_integration",
+      "the_log_filter_uiux",
+      "the_log_filter_canvas",
+      "the_log_filter_polish",
+      "the_log_sort_order",
+      "the_log_expand_all",
+      "the_log_reset_defaults",
+      "the_log_card_copy_prompt",
+      "the_log_card_edit",
+      "the_log_card_delete",
+      "the_log_card_toggle_expand",
+      "the_log_card_seq_badge",
+      "the_log_card_prompt_label",
+      "the_log_card_changes_label",
+      "the_log_card_author_label",
+      "the_log_form_close",
+      "the_log_form_cancel",
+      "the_log_form_save",
+      "the_log_empty_create",
+      "the_log_footer_export_pdf",
+      "the_log_footer_close",
+      "krums_title_label",
+      "krums_subtitle_label",
+      "krums_header_count_badge",
+      "krums_header_res_badge",
+      "krums_btn_demo_pack",
+      "krums_btn_add_images",
+      "krums_btn_commit_all",
+      "krums_btn_maximize",
+      "krums_btn_close",
+      "krums_notice_dismiss",
+      "krums_panel_cycle_view",
+      "krums_panel_toggle_queue",
+      "krums_panel_toggle_viewport",
+      "krums_panel_toggle_transforms",
+      "krums_panel_toggle_dock",
+      "krums_panel_collapse_queue",
+      "krums_panel_expand_queue",
+      "krums_panel_collapse_transforms",
+      "krums_panel_expand_transforms",
+      "krums_panel_collapse_dock",
+      "krums_panel_expand_dock",
+      "krums_queue_header_label",
+      "krums_queue_reverse",
+      "krums_queue_shuffle",
+      "krums_queue_clear_all",
+      "krums_queue_load_sample",
+      "krums_queue_item_frame_badge",
+      "krums_queue_item_move_up",
+      "krums_queue_item_move_down",
+      "krums_queue_item_duplicate",
+      "krums_queue_item_delete",
+      "krums_queue_bottom_hint",
+      "krums_queue_add_more",
+      "krums_viewport_header_label",
+      "krums_viewport_frame_indicator",
+      "krums_viewport_hold_original",
+      "krums_viewport_rotate_ccw",
+      "krums_viewport_rotate_cw",
+      "krums_viewport_flip_h",
+      "krums_viewport_flip_v",
+      "krums_viewport_zoom_out",
+      "krums_viewport_zoom_in",
+      "krums_viewport_reset_transforms",
+      "krums_viewport_screenshot",
+      "krums_btn_save_default_state",
+      "krums_viewport_commit_active",
+      "krums_viewport_hud_badge",
+      "krums_transforms_header_label",
+      "krums_tab_spin",
+      "krums_tab_zoom",
+      "krums_tab_stretch",
+      "krums_tab_effects",
+      "krums_spin_header_label",
+      "krums_spin_angle_m90",
+      "krums_spin_angle_m45",
+      "krums_spin_angle_0",
+      "krums_spin_angle_p45",
+      "krums_spin_mirror_label",
+      "krums_spin_flip_h",
+      "krums_spin_flip_v",
+      "krums_spin_reset",
+      "krums_zoom_header_label",
+      "krums_zoom_preset_50",
+      "krums_zoom_preset_100",
+      "krums_zoom_preset_150",
+      "krums_zoom_preset_200",
+      "krums_pan_header_label",
+      "krums_pan_center",
+      "krums_stretch_header_label",
+      "krums_stretch_presets_label",
+      "krums_stretch_preset_square",
+      "krums_stretch_preset_wide",
+      "krums_stretch_preset_tall",
+      "krums_stretch_preset_portrait",
+      "krums_stretch_preset_classic",
+      "krums_stretch_preset_cinema",
+      "krums_skew_header_label",
+      "krums_stretch_reset",
+      "krums_fx_header_label",
+      "krums_fx_presets_label",
+      "krums_fx_preset_clean",
+      "krums_fx_preset_cyberglow",
+      "krums_fx_preset_warmgold",
+      "krums_fx_preset_noir",
+      "krums_fx_preset_vividpop",
+      "krums_fx_preset_retro90s",
+      "krums_fx_preset_acidneon",
+      "krums_fx_preset_coolfrost",
+      "krums_fx_preset_dreamy",
+      "krums_fx_reset",
+      "krums_batch_sync_label",
+      "krums_batch_apply_all",
+      "krums_batch_commit_all",
+      "krums_dock_pipeline_label",
+      "krums_dock_count_label",
+      "krums_dock_download_active",
+      "krums_dock_export_zip",
+      "krums_dock_commit_all",
+      "krums_dock_send_carver",
+      "krums_dock_snapshot_storyboard",
+      "krums_dock_save_default_state",
+      "krums_dock_send_storyboard",
+      "header_cloud_db",
+      "front_page_ad_header_title",
+      "front_page_ad_header_badge",
+      "front_page_ad_cancel_swap",
+      "front_page_ad_undo_swap",
+      "front_page_ad_hide_panel_bar",
+      "front_page_ad_swap_panels",
+      "front_page_ad_control_deck",
+      "front_page_ad_toggle_links",
+      "front_page_ad_save_as_default",
+      "front_page_ad_reset_spread",
+      "front_page_ad_toggle_panel_bar",
+      "front_page_ad_footer_title",
+      "front_page_ad_footer_badge",
+      "front_page_ad_hint_drag",
+      "front_page_box_fullscreen_btn",
+      "front_page_box_spread_nbox",
+      "front_page_box_custom_spread",
+      "front_page_box_spread_default",
+      "front_page_box_rotate_series",
+      "front_page_box_tilelink",
+      "front_page_box_send_carver",
+      "front_page_box_clear",
+      "front_page_box_upload",
+      "front_page_box_from_storyboard",
+      "front_page_box_swap_panel",
+      "front_page_box_spread_all_9",
+      "btn_cust_modal_mode_toggle",
+      "btn_cust_modal_dock_right",
+      "btn_cust_modal_cloud_db",
+      "btn_cust_modal_minimize",
+      "btn_cust_minimized_pill",
+      "btn_cust_subtab_edit",
+      "btn_cust_subtab_list",
+      "btn_cust_filter_all",
+      "btn_cust_filter_buttons",
+      "btn_cust_filter_labels",
+      "btn_cust_group_all_icon_only",
+      "btn_cust_group_all_icon_text",
+      "btn_cust_group_reset_inherit",
+      "btn_cust_theme_saved",
+      "btn_cust_theme_cyberpunk",
+      "btn_cust_theme_emoji",
+      "btn_cust_theme_zero",
+      "btn_cust_theme_reset_all",
+      "btn_cust_apply_svg",
+      "btn_cust_toggle_slot_headers",
+      "btn_cust_discrete_browse_back",
+      "btn_cust_toggle_zero_text_btn",
+      "btn_cust_toggle_hide_icon_btn",
+      "header_utility_modal",
+      "storyboard_export_json_btn",
+      "storyboard_export_psd",
+      "storyboard_toggle_export_bar_size",
+      "storyboard_slices_export_psd",
+      "load_img_export_psd",
+      "creative_studio_aniplayer",
+      "creative_studio_spread_studio",
+      "creative_studio_asset_sorter",
+      "creative_studio_txt_studio",
+      "creative_studio_folder_creative",
+      "adv_modal_header_title",
+      "adv_modal_auto_slice",
+      "adv_modal_messhi",
+      "adv_modal_krums",
+      "adv_modal_grid_mesh",
+      "adv_modal_image_sharpener",
+      "adv_modal_resample_studio",
+      "adv_modal_anicomposer",
+      "adv_modal_smart_contour",
+      "adv_modal_save_default",
+      "adv_modal_restore_setup",
+      "adv_modal_tab_all",
+      "adv_modal_tab_slicers",
+      "adv_modal_tab_resamplers",
+      "adv_modal_tab_animator",
+      "adv_modal_toggle_tags",
+      "adv_modal_folder_creative",
+      "adv_modal_add_folder",
+      "utility_modal_header_title",
+      "utility_modal_toggle_tags",
+      "utility_modal_save_default",
+      "utility_modal_restore_setup",
+      "utility_modal_tab_all",
+      "utility_modal_tab_customizers",
+      "utility_modal_tab_workspace",
+      "utility_modal_tab_tools",
+      "utility_modal_cloud_db_config",
+      "utility_modal_button_customizer",
+      "utility_modal_mini_customizer",
+      "utility_modal_mouse_over_studio",
+      "utility_modal_the_log",
+      "utility_modal_rename_studio",
+      "utility_modal_smart_trim",
+      "utility_modal_join_images",
+      "utility_modal_layout_presets_manager",
+      "utility_modal_shortcut_manager",
+      "utility_modal_add_folder",
+      "utility_modal_folder_quick_actions",
+      "utility_modal_folder_data_logs",
+      "utility_modal_folder_image_tools",
+      "btn_cust_modal_tab_styles",
+      "btn_cust_modal_tab_model",
+      "btn_cust_modal_tab_modals",
+      "ad_panel_tab_spread",
+      "ad_panel_tab_spread_studio",
+      "ad_panel_tab_asset_sorter",
+      "ad_panel_tab_parallax",
+      "ad_panel_tab_media",
+      "ad_panel_tab_link",
+      "ad_panel_tab_swap",
+      "ad_panel_tab_actions",
+      "ad_panel_label_master_badge",
+      "ad_panel_label_target_spread_desc",
+      "ad_panel_label_live_preview",
+      "ad_panel_btn_aspect_auto",
+      "ad_panel_btn_aspect_1_1",
+      "ad_panel_btn_aspect_16_9",
+      "ad_panel_btn_aspect_4_3",
+      "ad_panel_label_footer_hint",
+      "ad_panel_btn_upload_active_panel",
+      "ad_panel_btn_upload_rotation_frame",
+      "ad_panel_btn_upload_hover_image",
+      "ad_panel_minimap_btn_1",
+      "ad_panel_minimap_btn_2",
+      "ad_panel_minimap_btn_3",
+      "ad_panel_minimap_btn_4",
+      "ad_panel_minimap_btn_5",
+      "ad_panel_minimap_btn_6",
+      "ad_panel_minimap_btn_7",
+      "ad_panel_minimap_btn_8",
+      "ad_panel_minimap_btn_9",
+      "ad_panel_label_active_panel",
+      "ad_panel_label_panel_badge",
+      "ad_panel_label_media_title",
+      "ad_panel_label_media_subtitle",
+      "ad_panel_label_rotation_title",
+      "ad_panel_label_rotation_interval",
+      "ad_panel_label_rotation_playlist",
+      "ad_panel_label_link_title",
+      "ad_panel_label_dest_url",
+      "ad_panel_label_target_window",
+      "ad_panel_label_hover_fx",
+      "ad_panel_label_secondary_hover_image",
+      "ad_panel_label_swap_title",
+      "ad_panel_label_swap_subtitle",
+      "ad_panel_label_swap_desc",
+      "ad_panel_label_actions_title",
+      "ad_panel_label_actions_persistence",
+      "ad_panel_btn_actions_send_carver",
+      "ad_panel_btn_actions_clear_image",
+      "ad_panel_btn_actions_save_all_default",
+      "ad_panel_btn_actions_reset_9_box",
+      "ad_panel_btn_swap_target_1",
+      "ad_panel_btn_swap_target_2",
+      "ad_panel_btn_swap_target_3",
+      "ad_panel_btn_swap_target_4",
+      "ad_panel_btn_swap_target_5",
+      "ad_panel_btn_swap_target_6",
+      "ad_panel_btn_swap_target_7",
+      "ad_panel_btn_swap_target_8",
+      "ad_panel_btn_swap_target_9",
+      "front_page_ad_slide_menu_trigger",
+      "front_page_ad_utility_modal",
+      "front_page_ad_adv_modal",
+      "front_page_ad_4x4_launcher",
+      "front_page_ad_btn_4x4",
+      "front_page_ad_4x4",
+      "front_page_ad_return_to_3x3_btn",
+      "front_page_ad_header_reset_btn",
+      "front_page_box_set_default_btn",
+      "spread_studio_btn_close",
+      "spread_studio_btn_toggle_fullscreen",
+      "spread_studio_btn_restore_db_defaults",
+      "spread_studio_btn_change_image",
+      "spread_studio_btn_select_all",
+      "spread_studio_btn_clear_all",
+      "spread_studio_preset_9",
+      "spread_studio_preset_8",
+      "spread_studio_preset_7",
+      "spread_studio_preset_6",
+      "spread_studio_preset_5",
+      "spread_studio_preset_4",
+      "spread_studio_cell_1",
+      "spread_studio_cell_2",
+      "spread_studio_cell_3",
+      "spread_studio_cell_4",
+      "spread_studio_cell_5",
+      "spread_studio_cell_6",
+      "spread_studio_cell_7",
+      "spread_studio_cell_8",
+      "spread_studio_cell_9",
+      "spread_studio_btn_lock_aspect",
+      "spread_studio_btn_reset_stretch_x",
+      "spread_studio_btn_reset_stretch_y",
+      "spread_studio_btn_master_upload",
+      "spread_studio_fx_none",
+      "spread_studio_fx_grayscale",
+      "spread_studio_fx_sepia",
+      "spread_studio_fx_invert",
+      "spread_studio_fx_blur",
+      "spread_studio_fx_hue",
+      "spread_studio_fx_contrast",
+      "spread_studio_fx_saturate",
+      "spread_studio_btn_cancel",
+      "spread_studio_btn_apply",
+      "spread_studio_label_title",
+      "spread_studio_label_instructions",
+      "spread_studio_label_presets_header",
+      "spread_studio_label_grid_header",
+      "spread_studio_label_stretch_header",
+      "spread_studio_label_scale_x",
+      "spread_studio_label_scale_y",
+      "spread_studio_label_master_header",
+      "spread_studio_label_fx_header",
+      "spread_studio_label_helper_tip",
+      "neo1_undo",
+      "neo1_redo",
+      "neo1_zoom_in",
+      "neo1_zoom_out",
+      "neo1_zoom_reset",
+      "neo1_clear_canvas",
+      "neo1_add_text",
+      "neo1_add_image",
+      "neo1_tab_text",
+      "neo1_tab_color",
+      "neo1_tab_effects",
+      "neo1_tab_warp",
+      "neo1_tab_presets",
+      "neo1_tab_background",
+      "neo1_tab_layers",
+      "neo1_tab_image",
+      "neo1_toggle_badges",
+      "neo1_toggle_action_bar",
+      "neo1_save_preset",
+      "neo1_load_project",
+      "neo1_save_project",
+      "neo1_shortcuts",
+      "neo1_burn_to_storyboard",
+      "neo1_save_to_organiser",
+      "neo1_save_as_new_slice",
+      "neo1_export_modal",
+      "neo1_import_psd",
+      "neo1_export_psd",
+      "neo1_export_btn_psd",
+      "neo1_modal_prev_frame",
+      "neo1_modal_next_frame",
+      "neo1_modal_close",
+      "neo1_canvas_zoom_in",
+      "neo1_canvas_zoom_out",
+      "neo1_canvas_zoom_100",
+      "neo1_canvas_fit",
+      "neo1_canvas_center",
+      "neo1_canvas_grid_toggle",
+      "neo1_canvas_snap_toggle",
+      "neo1_layer_duplicate",
+      "neo1_layer_delete",
+      "neo1_layer_bring_forward",
+      "neo1_layer_send_backward",
+      "neo1_layer_lock_toggle",
+      "neo1_layer_flip_h",
+      "neo1_layer_flip_v",
+      "neo1_layer_align_left",
+      "neo1_layer_align_center",
+      "neo1_layer_align_right",
+      "neo1_layer_align_top",
+      "neo1_layer_align_bottom",
+      "neo1_text_bold",
+      "neo1_text_italic",
+      "neo1_text_underline",
+      "neo1_text_uppercase",
+      "neo1_text_fill_solid",
+      "neo1_text_fill_gradient",
+      "neo1_text_glow_toggle",
+      "neo1_text_shadow_toggle",
+      "neo1_text_stroke_toggle",
+      "neo1_text_curved_toggle",
+      "neo1_fill_solid_tab",
+      "neo1_fill_gradient_tab",
+      "neo1_fill_invert",
+      "neo1_fill_random",
+      "neo1_fx_reset",
+      "neo1_fx_glow",
+      "neo1_fx_shadow",
+      "neo1_fx_stroke",
+      "neo1_fx_3d",
+      "neo1_warp_none",
+      "neo1_warp_arc",
+      "neo1_warp_arch",
+      "neo1_warp_bulge",
+      "neo1_warp_flag",
+      "neo1_warp_wave",
+      "neo1_warp_fish",
+      "neo1_warp_rise",
+      "neo1_warp_twist",
+      "neo1_warp_reset",
+      "neo1_preset_apply",
+      "neo1_preset_preview",
+      "neo1_preset_save_custom",
+      "neo1_bg_color",
+      "neo1_bg_transparent",
+      "neo1_bg_upload_btn",
+      "neo1_bg_apply_frame",
+      "neo1_bg_clear_btn",
+      "neo1_layers_add_btn",
+      "neo1_layers_duplicate_btn",
+      "neo1_layers_delete_btn",
+      "neo1_layers_up_btn",
+      "neo1_layers_down_btn",
+      "neo1_layers_clear_btn",
+      "neo1_export_btn_burn",
+      "neo1_export_btn_download",
+      "neo1_export_btn_clipboard",
+      "neo1_export_btn_close",
+      "neo1_label_title",
+      "neo1_label_editing",
+      "neo1_toggle_left_panel",
+      "neo1_sidebar_toggle_panel",
+      "neo1_nav_prev_frame",
+      "neo1_nav_next_frame",
+      "neo1_export_fmt_png",
+      "neo1_export_fmt_jpeg",
+      "neo1_export_fmt_webp",
+      "neo1_export_res_1x",
+      "neo1_export_res_2x",
+      "neo1_export_res_3x",
+      "neo1_export_btn_save_json",
+      "neo1_addtext_btn_create",
+      "neo1_addtext_btn_cancel",
+      "neo1_addtext_btn_close_x",
+      "neo1_shortcuts_btn_close",
+      "neo1_shortcuts_btn_close_x",
+      "neo1_preset_save_confirm",
+      "neo1_preset_save_cancel",
+      "neo1_action_bar_close",
+      "neo1_toggle_badges_bottom",
+      "neo1_toggle_badges_quick",
+      "neo1_layers_visibility",
+      "neo1_layers_lock",
+      "neo1_layers_toggle_badges",
+      "neo1_text_add_layer",
+      "neo1_text_visibility",
+      "neo1_text_lock",
+      "neo1_text_delete",
+      "neo1_text_case_normal",
+      "neo1_text_case_lowercase",
+      "neo1_preset_preview_cancel",
+      "neo1_preset_reset",
+      "neo1_preset_add_layer",
+      "neo1_bg_aspect_square",
+      "neo1_bg_aspect_landscape",
+      "neo1_bg_aspect_portrait",
+      "neo1_bg_add_url",
+      "neo1_bg_clear_custom",
+      "neo1_fx_badge_rect",
+      "neo1_fx_badge_pill",
+      "anicomper4_title_label",
+      "anicomper4_first_frame",
+      "anicomper4_prev_frame",
+      "anicomper4_play_toggle",
+      "anicomper4_next_frame",
+      "anicomper4_last_frame",
+      "anicomper4_loop_toggle",
+      "anicomper4_add_keyframe",
+      "anicomper4_delete_keyframe",
+      "anicomper4_speed_ramp",
+      "anicomper4_onion_skin",
+      "anicomper4_toggle_slices",
+      "anicomper4_toggle_tracks",
+      "anicomper4_toggle_inspector",
+      "anicomper4_toggle_timeline",
+      "anicomper4_save_project",
+      "anicomper4_export_json",
+      "anicomper4_export_gif",
+      "anicomper4_export_zip",
+      "anicomper4_apply_storyboard",
+      "anicomper4_close",
+      "anicomper4_add_track",
+      "anicomper4_time_mode",
+      "anicomper4_slices_label",
+      "anicomper4_tracks_label",
+      "anicomper4_canvas_label",
+      "anicomper4_inspector_label",
+      "anicomper4_timeline_label",
+      "anicomper4_speed_ramp_label",
+      "anicomper4_slices_collapse",
+      "anicomper4_tracks_collapse",
+      "anicomper4_inspector_collapse",
+      "anicomper4_timeline_collapse",
+      "storyboard_tool_anicomper4",
+      "control_deck_btn_grid_cycle",
+      "control_deck_btn_lock",
+      "control_deck_btn_close",
+      "control_deck_btn_header_upload",
+      "control_deck_btn_header_pool",
+      "control_deck_nav_spread",
+      "control_deck_nav_image",
+      "control_deck_nav_rotation",
+      "control_deck_nav_sequencer",
+      "control_deck_nav_link",
+      "control_deck_nav_style",
+      "control_deck_nav_motion",
+      "control_deck_nav_sorter",
+      "control_deck_btn_slot_all",
+      "control_deck_btn_slot_none",
+      "control_deck_btn_slot_invert",
+      "control_deck_btn_submit_preview",
+      "control_deck_btn_submit_close",
+      "control_deck_btn_submit_proceed",
+      "control_deck_btn_art_save_db",
+      "control_deck_btn_art_use_url",
+      "control_deck_btn_art_upload_file",
+      "control_deck_btn_fx_none",
+      "control_deck_btn_fx_grayscale",
+      "control_deck_btn_fx_sepia",
+      "control_deck_btn_fx_invert",
+      "control_deck_btn_fx_contrast",
+      "control_deck_btn_fx_saturate",
+      "control_deck_btn_fx_cool",
+      "control_deck_btn_fx_warm",
+      "control_deck_btn_url_add",
+      "control_deck_btn_link_fx_none",
+      "control_deck_btn_link_fx_spin",
+      "control_deck_btn_link_fx_swap",
+      "control_deck_btn_link_upload_hover",
+      "control_deck_btn_link_test_hover",
+      "control_deck_btn_open_url_library",
+      "control_deck_img_clear",
+      "control_deck_img_upload",
+      "control_deck_img_copy_all",
+      "control_deck_img_to_carver",
+      "control_deck_img_distribute_pool",
+      "control_deck_img_load_url",
+      "control_deck_img_quick_upload",
+      "control_deck_seq_mode_select",
+      "control_deck_seq_mode_erase",
+      "control_deck_seq_preset_all",
+      "control_deck_seq_preset_snake",
+      "control_deck_seq_preset_columns",
+      "control_deck_seq_preset_spiral",
+      "control_deck_seq_preset_ring",
+      "control_deck_seq_reverse",
+      "control_deck_seq_shuffle",
+      "control_deck_seq_clear",
+      "control_deck_seq_transport_play",
+      "control_deck_seq_wrap_loop",
+      "control_deck_seq_wrap_pingpong",
+      "control_deck_seq_wrap_once",
+      "control_deck_seq_turn_step",
+      "control_deck_seq_turn_spin",
+      "control_deck_seq_turn_pulse",
+      "control_deck_seq_toggle_active",
+      "control_deck_rot_toggle_active",
+      "control_deck_rot_add_frame",
+      "control_deck_style_cyberpunk",
+      "control_deck_style_cyan",
+      "control_deck_style_vaporwave",
+      "control_deck_style_slate",
+      "control_deck_sorter_sort_az",
+      "control_deck_sorter_sort_za",
+      "control_deck_sorter_reverse",
+      "control_deck_btn_url_modal_save",
+      "control_deck_btn_url_modal_cancel",
+      "control_deck_btn_url_modal_close",
+      "control_deck_btn_toggle_top_panel",
+      "control_deck_btn_global_rotation"
+    ],
+    "stripImageBackground": "#000000",
+    "globalZeroTextMode": true,
+    "panelControlsOrder": [
+      "swap_panels",
+      "control_deck",
+      "slide_menu",
+      "utility_modal",
+      "adv_modal",
+      "button_customizer"
+    ],
+    "showTopPanelButtons": true
+  },
+  "customConfigs": {
+    "creative_studio_button_customizer": {
+      "id": "creative_studio_button_customizer",
+      "customIconType": "preset",
+      "hideText": false,
+      "iconName": "Cpu"
+    },
+    "krums_dock_save_default_state": {
+      "hideText": false,
+      "label": "Set Default",
+      "id": "krums_dock_save_default_state"
+    },
+    "zoom_studio_speed_16": {
+      "hideText": false,
+      "id": "zoom_studio_speed_16",
+      "label": "16fps"
+    },
+    "creative_studio_krums": {
+      "hideText": false,
+      "id": "creative_studio_krums"
+    },
+    "multiCropToSlices": {
+      "id": "multiCropToSlices",
+      "label": "Send 2 Asset Pool",
+      "customIconType": "preset",
+      "hideText": false,
+      "iconName": "Rocket"
+    },
+    "resample_studio_scale_2x": {
+      "label": "2x HD",
+      "hideText": false,
+      "id": "resample_studio_scale_2x"
+    },
+    "ad_panel_btn_hover_fx_spin": {
+      "id": "ad_panel_btn_hover_fx_spin",
+      "label": "3D Spin",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_switcher_btn_9": {
+      "hideText": false,
+      "label": "9",
+      "id": "ad_panel_switcher_btn_9",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "carve_smart_trim_export": {
+      "hideText": true,
+      "iconName": "Hash",
+      "customIconType": "preset",
+      "id": "carve_smart_trim_export"
+    },
+    "btn_cust_group_all_icon_only": {
+      "hideText": false,
+      "id": "btn_cust_group_all_icon_only",
+      "label": "All: Icon Only"
+    },
+    "storyboard_tool_restore_default_state": {
+      "iconName": "RefreshCw",
+      "customIconType": "preset",
+      "id": "storyboard_tool_restore_default_state"
+    },
+    "multiCropItemSendAsset": {
+      "customIconType": "preset",
+      "id": "multiCropItemSendAsset",
+      "iconName": "Rocket"
+    },
+    "ad_panel_switcher_btn_6": {
+      "label": "6",
+      "hideText": false,
+      "id": "ad_panel_switcher_btn_6",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "modal_expand_preview_zoom_studio": {
+      "hideText": true,
+      "id": "modal_expand_preview_zoom_studio"
+    },
+    "sharpener_studio_apply_new_frame": {
+      "hideText": false,
+      "id": "sharpener_studio_apply_new_frame",
+      "label": "+ Storyboard Frame"
+    },
+    "creative_studio_tab_all": {
+      "hideText": false,
+      "id": "creative_studio_tab_all",
+      "hideIcon": true
+    },
+    "zoom_studio_reset_defaults": {
+      "id": "zoom_studio_reset_defaults",
+      "label": "Reset defaults",
+      "hideText": false
+    },
+    "storyboard_export_json_btn": {
+      "fontSize": "tiny",
+      "customIconType": "preset",
+      "id": "storyboard_export_json_btn",
+      "label": "Export json",
+      "iconSize": "small",
+      "hideText": false,
+      "iconName": "FileJson",
+      "accentColor": "#00f0ff",
+      "backgroundColor": "#082f49",
+      "borderColor": "#00f0ff",
+      "textColor": "#38bdf8"
+    },
+    "creative_studio_parallax": {
+      "hideText": false,
+      "id": "creative_studio_parallax"
+    },
+    "crop_smart_trim": {
+      "hideText": false,
+      "id": "crop_smart_trim"
+    },
+    "zoom_studio_label_quick_presets": {
+      "hideText": false,
+      "label": "Quick style presets",
+      "id": "zoom_studio_label_quick_presets"
+    },
+    "crop_and_go": {
+      "id": "crop_and_go",
+      "customIconType": "preset",
+      "iconName": "Hash",
+      "hideText": true
+    },
+    "ad_panel_btn_default_spread_7": {
+      "hideText": false,
+      "id": "ad_panel_btn_default_spread_7",
+      "label": "7 Default",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "crop_2sbrd": {
+      "customIconType": "preset",
+      "id": "crop_2sbrd",
+      "iconName": "Video",
+      "hideText": true
+    },
+    "storyboard_tool_auto_number": {
+      "id": "storyboard_tool_auto_number",
+      "hideText": true
+    },
+    "zoom_studio_quick_frames_3": {
+      "label": "+3",
+      "id": "zoom_studio_quick_frames_3",
+      "hideText": false
+    },
+    "btn_cust_theme_reset_all": {
+      "hideText": false,
+      "label": "Reset All",
+      "id": "btn_cust_theme_reset_all"
+    },
+    "creative_studio_resample_studio": {
+      "hideText": false,
+      "id": "creative_studio_resample_studio"
+    },
+    "resample_studio_view_side_by_side": {
+      "id": "resample_studio_view_side_by_side",
+      "hideText": false,
+      "label": "Side by Side"
+    },
+    "zoom_studio_tab_zoom": {
+      "label": "Zoom",
+      "id": "zoom_studio_tab_zoom",
+      "hideText": false
+    },
+    "label_crop_storyboard_frame": {
+      "hideText": false,
+      "id": "label_crop_storyboard_frame"
+    },
+    "ad_panel_btn_n_spread_7": {
+      "hideText": false,
+      "label": "7 Panels",
+      "id": "ad_panel_btn_n_spread_7",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_custom_spread_studio": {
+      "hideText": true,
+      "iconName": "Grid3x3",
+      "label": "Spread Studio",
+      "id": "ad_panel_btn_custom_spread_studio",
+      "defaultLabel": "Spread Studio",
+      "isTextHidden": true,
+      "defaultIconName": "Grid3x3",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "spread_studio_btn_close": {
+      "id": "spread_studio_btn_close",
+      "defaultLabel": "Close",
+      "hideText": true,
+      "iconName": "X",
+      "label": "Close"
+    },
+    "spread_studio_btn_change_image": {
+      "defaultLabel": "Change Image",
+      "id": "spread_studio_btn_change_image",
+      "hideText": false,
+      "iconName": "Upload",
+      "label": "Change Image"
+    },
+    "spread_studio_preset_9": {
+      "label": "9 Panels",
+      "id": "spread_studio_preset_9",
+      "iconName": "Grid3x3",
+      "hideText": false,
+      "defaultLabel": "9 Panels"
+    },
+    "spread_studio_preset_8": {
+      "hideText": false,
+      "iconName": "LayoutGrid",
+      "label": "8 Panels",
+      "id": "spread_studio_preset_8",
+      "defaultLabel": "8 Panels"
+    },
+    "spread_studio_preset_7": {
+      "iconName": "LayoutGrid",
+      "hideText": false,
+      "id": "spread_studio_preset_7",
+      "defaultLabel": "7 Panels",
+      "label": "7 Panels"
+    },
+    "spread_studio_preset_6": {
+      "iconName": "LayoutGrid",
+      "id": "spread_studio_preset_6",
+      "hideText": false,
+      "defaultLabel": "6 Panels",
+      "label": "6 Panels"
+    },
+    "spread_studio_preset_5": {
+      "id": "spread_studio_preset_5",
+      "iconName": "LayoutGrid",
+      "hideText": false,
+      "label": "5 Panels",
+      "defaultLabel": "5 Panels"
+    },
+    "spread_studio_preset_4": {
+      "label": "4 Panels",
+      "iconName": "LayoutGrid",
+      "hideText": false,
+      "id": "spread_studio_preset_4",
+      "defaultLabel": "4 Panels"
+    },
+    "spread_studio_btn_lock_aspect": {
+      "label": "Lock Aspect",
+      "id": "spread_studio_btn_lock_aspect",
+      "iconName": "Lock",
+      "hideText": true,
+      "defaultLabel": "Lock Aspect"
+    },
+    "spread_studio_btn_reset_stretch_x": {
+      "hideText": true,
+      "iconName": "RefreshCw",
+      "label": "Reset X",
+      "id": "spread_studio_btn_reset_stretch_x",
+      "defaultLabel": "Reset X"
+    },
+    "spread_studio_btn_reset_stretch_y": {
+      "id": "spread_studio_btn_reset_stretch_y",
+      "iconName": "RefreshCw",
+      "hideText": true,
+      "label": "Reset Y",
+      "defaultLabel": "Reset Y"
+    },
+    "spread_studio_btn_master_upload": {
+      "hideText": false,
+      "iconName": "Upload",
+      "label": "Upload",
+      "defaultLabel": "Upload",
+      "id": "spread_studio_btn_master_upload"
+    },
+    "spread_studio_btn_cancel": {
+      "id": "spread_studio_btn_cancel",
+      "label": "Cancel",
+      "defaultLabel": "Cancel",
+      "hideText": false,
+      "iconName": "X"
+    },
+    "spread_studio_btn_apply": {
+      "iconName": "Check",
+      "hideText": false,
+      "label": "Apply Spread",
+      "defaultLabel": "Apply Spread",
+      "id": "spread_studio_btn_apply"
+    },
+    "load_img_import_json": {
+      "label": "Import Storyboard JSON",
+      "id": "load_img_import_json",
+      "hideText": false
+    },
+    "ad_panel_switcher_btn_8": {
+      "hideText": false,
+      "id": "ad_panel_switcher_btn_8",
+      "label": "8",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "header_load_image": {
+      "hideText": true,
+      "id": "header_load_image",
+      "label": ""
+    },
+    "carve_zip_selected": {
+      "iconName": "Combine",
+      "hideText": true,
+      "id": "carve_zip_selected",
+      "customIconType": "preset"
+    },
+    "carve_smart_trim": {
+      "hideText": false,
+      "id": "carve_smart_trim"
+    },
+    "resample_studio_zoom_reset": {
+      "id": "resample_studio_zoom_reset",
+      "label": "100%",
+      "hideText": false
+    },
+    "ad_panel_switcher_btn_5": {
+      "hideText": false,
+      "label": "5",
+      "id": "ad_panel_switcher_btn_5",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "sharpener_studio_reset": {
+      "hideText": false,
+      "id": "sharpener_studio_reset",
+      "label": "Reset"
+    },
+    "crop_sb_frame_delete": {
+      "hideText": true,
+      "id": "crop_sb_frame_delete"
+    },
+    "btn_cust_modal_mode_toggle": {
+      "hideText": false,
+      "id": "btn_cust_modal_mode_toggle",
+      "label": "Discrete Mode"
+    },
+    "ad_panel_switcher_btn_2": {
+      "id": "ad_panel_switcher_btn_2",
+      "label": "2",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "crop_auto_slice": {
+      "hideText": false,
+      "id": "crop_auto_slice"
+    },
+    "creative_studio_save_default": {
+      "id": "creative_studio_save_default",
+      "hideText": false
+    },
+    "modal_expand_zoom_studio": {
+      "hideText": true,
+      "id": "modal_expand_zoom_studio"
+    },
+    "zoom_studio_download_gif": {
+      "hideText": false,
+      "id": "zoom_studio_download_gif"
+    },
+    "btn_cust_modal_dock_right": {
+      "id": "btn_cust_modal_dock_right",
+      "hideText": true,
+      "label": "Dock Side"
+    },
+    "ad_panel_btn_send_to_carver": {
+      "hideText": false,
+      "label": "Send to Carver",
+      "id": "ad_panel_btn_send_to_carver",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_mouse_over_studio": {
+      "hideText": false,
+      "id": "creative_studio_mouse_over_studio"
+    },
+    "sharpener_studio_tab_sharpness": {
+      "id": "sharpener_studio_tab_sharpness",
+      "label": "Sharpness",
+      "hideText": false
+    },
+    "canvas_history_visualizer": {
+      "id": "canvas_history_visualizer",
+      "hideText": true
+    },
+    "krums_panel_toggle_dock": {
+      "id": "krums_panel_toggle_dock",
+      "hideText": false,
+      "label": "Dock"
+    },
+    "creative_studio_cloud_db_config": {
+      "id": "creative_studio_cloud_db_config",
+      "hideText": false
+    },
+    "front_page_ad_toggle_links": {
+      "id": "front_page_ad_toggle_links",
+      "label": "On/Off",
+      "iconName": "Circle",
+      "hideText": false,
+      "textColor": "#34d399",
+      "backgroundColor": "#051c16",
+      "borderColor": "#10b981",
+      "accentColor": "#059669",
+      "tooltip": "Toggle Link Interaction Mode (Lock edit actions)"
+    },
+    "krums_dock_export_zip": {
+      "id": "krums_dock_export_zip",
+      "hideText": false,
+      "label": "ZIP"
+    },
+    "ad_panel_btn_hover_fx_change_image": {
+      "hideText": false,
+      "id": "ad_panel_btn_hover_fx_change_image",
+      "label": "Swap Image",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "sharpener_studio_label_presets": {
+      "id": "sharpener_studio_label_presets",
+      "hideText": false,
+      "label": "One-Click Enhancement Presets"
+    },
+    "btn_cust_modal_minimize": {
+      "id": "btn_cust_modal_minimize",
+      "hideText": true,
+      "label": "Minimize"
+    },
+    "sharpener_studio_hold_original": {
+      "hideText": false,
+      "label": "Hold for Original",
+      "id": "sharpener_studio_hold_original"
+    },
+    "mode_storyboard": {
+      "iconName": "Clapperboard",
+      "id": "mode_storyboard",
+      "customIconType": "preset",
+      "hideText": true
+    },
+    "ad_panel_btn_close": {
+      "label": "Close",
+      "id": "ad_panel_btn_close",
+      "hideText": true,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_join_images": {
+      "hideText": false,
+      "id": "creative_studio_join_images"
+    },
+    "ad_panel_label_spread_engine_title": {
+      "hideText": false,
+      "id": "ad_panel_label_spread_engine_title",
+      "label": "Panel 1 Multi-Box Spread Engine",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "header_rename_tag": {
+      "id": "header_rename_tag",
+      "hideText": true,
+      "label": ""
+    },
+    "sharpener_studio_scale_3x": {
+      "label": "3x QHD",
+      "id": "sharpener_studio_scale_3x",
+      "hideText": false
+    },
+    "zoom_studio_regenerate": {
+      "hideText": false,
+      "id": "zoom_studio_regenerate"
+    },
+    "resample_studio_view_split": {
+      "label": "Split",
+      "hideText": false,
+      "id": "resample_studio_view_split"
+    },
+    "resample_studio_scale_1x": {
+      "label": "1x Native",
+      "id": "resample_studio_scale_1x",
+      "hideText": false
+    },
+    "load_target_single_box": {
+      "hideText": false,
+      "id": "load_target_single_box",
+      "label": "Single Box"
+    },
+    "krums_tab_zoom": {
+      "hideText": false,
+      "id": "krums_tab_zoom",
+      "label": "Zoom"
+    },
+    "ad_panel_btn_n_spread_9": {
+      "hideText": false,
+      "label": "9 Panels",
+      "id": "ad_panel_btn_n_spread_9",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_reset_spread_overview": {
+      "label": "Reset Spread",
+      "hideText": false,
+      "id": "ad_panel_btn_reset_spread_overview",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_tab_tools": {
+      "id": "creative_studio_tab_tools",
+      "hideText": false
+    },
+    "ad_panel_btn_default_spread_6": {
+      "hideText": false,
+      "id": "ad_panel_btn_default_spread_6",
+      "label": "6 Default",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_exit_fullscreen": {
+      "id": "ad_panel_btn_exit_fullscreen",
+      "label": "Exit Full Screen",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "modal_expand_preview_variations": {
+      "id": "modal_expand_preview_variations",
+      "hideText": true
+    },
+    "ad_panel_switcher_btn_7": {
+      "label": "7",
+      "id": "ad_panel_switcher_btn_7",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_links": {
+      "label": "Links",
+      "hideText": false,
+      "id": "ad_panel_tab_links",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "carve_detect_edges": {
+      "iconName": "Ruler",
+      "id": "carve_detect_edges",
+      "customIconType": "preset"
+    },
+    "front_page_ad_hide_panel_bar": {
+      "id": "front_page_ad_hide_panel_bar",
+      "label": "",
+      "iconName": "Eye",
+      "hideText": true,
+      "textColor": "#94a3b8",
+      "backgroundColor": "#0b101d",
+      "borderColor": "#1e293b",
+      "accentColor": "#151719",
+      "tooltip": "Hide Panel Controls"
+    },
+    "zoom_studio_close": {
+      "label": "Close",
+      "hideText": true,
+      "id": "zoom_studio_close"
+    },
+    "resample_studio_apply_new_frame": {
+      "id": "resample_studio_apply_new_frame",
+      "label": "Add New Frame",
+      "hideText": false
+    },
+    "ad_panel_btn_n_spread_4": {
+      "hideText": false,
+      "label": "4 Panels",
+      "id": "ad_panel_btn_n_spread_4",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_link_target_blank": {
+      "hideText": false,
+      "label": "New Window (_blank)",
+      "id": "ad_panel_btn_link_target_blank",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "krums_tab_spin": {
+      "hideText": false,
+      "id": "krums_tab_spin"
+    },
+    "btn_cust_minimized_pill": {
+      "label": "Button Customizer",
+      "id": "btn_cust_minimized_pill",
+      "hideText": false
+    },
+    "btn_cust_filter_all": {
+      "hideText": false,
+      "id": "btn_cust_filter_all",
+      "label": "All Items"
+    },
+    "storyboard_save_pdf": {
+      "fontSize": "tiny",
+      "customIconType": "preset",
+      "label": "Save pdf",
+      "id": "storyboard_save_pdf",
+      "hideText": false,
+      "iconName": "FileText",
+      "iconSize": "small",
+      "accentColor": "#00f0ff",
+      "backgroundColor": "#082f49",
+      "borderColor": "#00f0ff",
+      "textColor": "#38bdf8"
+    },
+    "zoom_studio_upload_image": {
+      "hideText": false,
+      "id": "zoom_studio_upload_image",
+      "label": "Upload image"
+    },
+    "resample_studio_hold_original": {
+      "label": "Hold for Original",
+      "id": "resample_studio_hold_original",
+      "hideText": false
+    },
+    "creative_studio_grid_mesh": {
+      "hideText": false,
+      "id": "creative_studio_grid_mesh"
+    },
+    "ad_panel_btn_upload_spread_9": {
+      "hideText": false,
+      "id": "ad_panel_btn_upload_spread_9",
+      "label": "Upload New Image & Spread Across 3×3 (All 9)",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_tab_layout": {
+      "hideText": false,
+      "id": "creative_studio_tab_layout"
+    },
+    "btn_cust_group_all_icon_text": {
+      "label": "All: Icon + Text",
+      "id": "btn_cust_group_all_icon_text",
+      "hideText": false
+    },
+    "sharpener_studio_slice_next": {
+      "id": "sharpener_studio_slice_next",
+      "hideText": false,
+      "label": "Next"
+    },
+    "zoom_studio_speed_10": {
+      "label": "10fps",
+      "id": "zoom_studio_speed_10",
+      "hideText": false
+    },
+    "storyboard_top_overwrite": {
+      "id": "storyboard_top_overwrite",
+      "hideText": false
+    },
+    "ad_panel_btn_reset_9_box": {
+      "hideText": false,
+      "label": "Reset 9-Panel Spread",
+      "id": "ad_panel_btn_reset_9_box",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "zoom_studio_speed_5": {
+      "id": "zoom_studio_speed_5",
+      "label": "5fps",
+      "hideText": false
+    },
+    "zoom_studio_frame_next": {
+      "label": "Next",
+      "hideText": false,
+      "id": "zoom_studio_frame_next"
+    },
+    "ad_panel_btn_default_spread_9": {
+      "label": "9 Default",
+      "hideText": false,
+      "id": "ad_panel_btn_default_spread_9",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "resample_studio_scale_3x": {
+      "id": "resample_studio_scale_3x",
+      "label": "3x QHD",
+      "hideText": false
+    },
+    "label_quick_tools": {
+      "id": "label_quick_tools",
+      "hideText": false,
+      "hideIcon": true
+    },
+    "resample_studio_close": {
+      "hideText": false,
+      "id": "resample_studio_close",
+      "label": "Close"
+    },
+    "creative_studio_header_title": {
+      "hideText": true,
+      "id": "creative_studio_header_title",
+      "label": ""
+    },
+    "krums_tab_stretch": {
+      "id": "krums_tab_stretch",
+      "label": "Stretch",
+      "hideText": false
+    },
+    "zoom_studio_show_controls_float": {
+      "id": "zoom_studio_show_controls_float",
+      "label": "Show controls",
+      "hideText": false
+    },
+    "krums_dock_pipeline_label": {
+      "label": "Pipeline:",
+      "id": "krums_dock_pipeline_label"
+    },
+    "ad_panel_btn_minimized_pill": {
+      "hideText": false,
+      "label": "Advert Panel Inspector",
+      "id": "ad_panel_btn_minimized_pill",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "storyboard_tool_view_cycle": {
+      "id": "storyboard_tool_view_cycle",
+      "hideText": true
+    },
+    "zoom_studio_replace_frame": {
+      "label": "Replace frame",
+      "id": "zoom_studio_replace_frame",
+      "hideText": false
+    },
+    "btn_cust_modal_cloud_db": {
+      "id": "btn_cust_modal_cloud_db",
+      "label": "Cloud DB",
+      "hideText": false
+    },
+    "ad_panel_tab_storyboard": {
+      "label": "Storyboard",
+      "id": "ad_panel_tab_storyboard",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "zoom_studio_quick_frames_12": {
+      "hideText": false,
+      "label": "+12",
+      "id": "zoom_studio_quick_frames_12"
+    },
+    "krums_panel_toggle_transforms": {
+      "hideText": true,
+      "label": "Matrix",
+      "id": "krums_panel_toggle_transforms"
+    },
+    "resample_studio_frame_next": {
+      "id": "resample_studio_frame_next",
+      "hideText": false,
+      "label": "Next Frame"
+    },
+    "krums_btn_demo_pack": {
+      "hideText": false,
+      "label": "Demo",
+      "id": "krums_btn_demo_pack"
+    },
+    "ad_panel_btn_dock_side": {
+      "id": "ad_panel_btn_dock_side",
+      "label": "Dock Side",
+      "hideText": true,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "carve_auto_slice": {
+      "hideText": false,
+      "id": "carve_auto_slice"
+    },
+    "btn_cust_apply_svg": {
+      "id": "btn_cust_apply_svg",
+      "hideText": false,
+      "label": "Apply SVG"
+    },
+    "zoom_studio_quick_frames_16": {
+      "id": "zoom_studio_quick_frames_16",
+      "hideText": false,
+      "label": "+16"
+    },
+    "load_target_carver": {
+      "hideText": false,
+      "label": "Carver Canvas",
+      "id": "load_target_carver"
+    },
+    "ad_panel_header_title": {
+      "label": "",
+      "id": "ad_panel_header_title",
+      "hideText": true,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_n_spread_8": {
+      "label": "8 Panels",
+      "hideText": false,
+      "id": "ad_panel_btn_n_spread_8",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "resample_studio_tab_presets": {
+      "label": "Presets",
+      "hideText": false,
+      "id": "resample_studio_tab_presets"
+    },
+    "zoom_studio_quick_frames_5": {
+      "hideText": false,
+      "id": "zoom_studio_quick_frames_5",
+      "label": "+5"
+    },
+    "modal_expand_sharpener": {
+      "id": "modal_expand_sharpener",
+      "hideText": true
+    },
+    "storyboard_download_zip": {
+      "iconName": "Archive",
+      "hideText": false,
+      "iconSize": "small",
+      "id": "storyboard_download_zip",
+      "label": "Download zip",
+      "fontSize": "tiny",
+      "customIconType": "preset",
+      "accentColor": "#00f0ff",
+      "backgroundColor": "#082f49",
+      "borderColor": "#00f0ff",
+      "textColor": "#38bdf8"
+    },
+    "storyboard_export_psd": {
+      "hideText": false,
+      "iconSize": "small",
+      "iconName": "Layers",
+      "customIconType": "preset",
+      "id": "storyboard_export_psd",
+      "label": "Export psd",
+      "fontSize": "tiny",
+      "accentColor": "#00f0ff",
+      "backgroundColor": "#082f49",
+      "borderColor": "#00f0ff",
+      "textColor": "#38bdf8"
+    },
+    "storyboard_toggle_export_bar_size": {
+      "id": "storyboard_toggle_export_bar_size",
+      "fontSize": "tiny",
+      "customIconType": "preset",
+      "hideText": false,
+      "iconSize": "small",
+      "iconName": "Minimize2",
+      "label": "Toggle size"
+    },
+    "krums_mesh_studio_tool": {
+      "hideText": false,
+      "id": "krums_mesh_studio_tool"
+    },
+    "load_img_btn_load_url": {
+      "hideText": false,
+      "label": "Load URL",
+      "id": "load_img_btn_load_url"
+    },
+    "ad_panel_btn_change_target_image": {
+      "id": "ad_panel_btn_change_target_image",
+      "hideText": false,
+      "label": "Change",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "multiCropSendAllGrid": {
+      "iconName": "Rocket",
+      "hideText": false,
+      "customIconType": "preset",
+      "label": "Send  to Storyboard",
+      "id": "multiCropSendAllGrid"
+    },
+    "zoom_studio_speed_24": {
+      "id": "zoom_studio_speed_24",
+      "label": "24fps",
+      "hideText": false
+    },
+    "krums_dock_commit_all": {
+      "label": "Commit",
+      "hideText": false,
+      "id": "krums_dock_commit_all"
+    },
+    "creative_studio_tab_color": {
+      "hideText": false,
+      "id": "creative_studio_tab_color"
+    },
+    "multiCropClearAll": {
+      "id": "multiCropClearAll",
+      "hideText": false
+    },
+    "sharpener_studio_slice_prev": {
+      "hideText": false,
+      "id": "sharpener_studio_slice_prev",
+      "label": "Prev"
+    },
+    "creative_studio_tab_style": {
+      "id": "creative_studio_tab_style",
+      "hideText": false
+    },
+    "ad_panel_switcher_btn_3": {
+      "id": "ad_panel_switcher_btn_3",
+      "hideText": false,
+      "label": "3",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_rename_studio": {
+      "hideText": false,
+      "id": "creative_studio_rename_studio",
+      "iconName": "Tag",
+      "customIconType": "preset"
+    },
+    "btn_cust_group_reset_inherit": {
+      "id": "btn_cust_group_reset_inherit",
+      "label": "Reset to Inherit",
+      "hideText": false
+    },
+    "header_anim_player": {
+      "label": "",
+      "hideText": true,
+      "id": "header_anim_player"
+    },
+    "storyboard_top_append": {
+      "hideText": false,
+      "id": "storyboard_top_append"
+    },
+    "zoom_studio_tab_effects": {
+      "id": "zoom_studio_tab_effects",
+      "label": "Effects",
+      "hideText": false
+    },
+    "ad_panel_btn_upload_panel": {
+      "id": "ad_panel_btn_upload_panel",
+      "label": "Upload to Panel",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "resample_studio_scale_4x": {
+      "id": "resample_studio_scale_4x",
+      "hideText": false,
+      "label": "4x 4K"
+    },
+    "btn_cust_filter_labels": {
+      "hideText": false,
+      "id": "btn_cust_filter_labels",
+      "label": "Labels"
+    },
+    "load_target_spread_3x3": {
+      "label": "Spread 3x3",
+      "hideText": false,
+      "id": "load_target_spread_3x3"
+    },
+    "zoom_studio_toggle_controls": {
+      "id": "zoom_studio_toggle_controls",
+      "hideText": false
+    },
+    "sharpener_studio_zoom_in": {
+      "id": "sharpener_studio_zoom_in",
+      "label": "Zoom In",
+      "hideText": false
+    },
+    "sharpener_studio_apply_canvas": {
+      "label": "→ Carver Canvas",
+      "id": "sharpener_studio_apply_canvas",
+      "hideText": false
+    },
+    "ad_panel_tab_multi_spread": {
+      "id": "ad_panel_tab_multi_spread",
+      "label": "Multi-Spread",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_tab_creative": {
+      "hideText": false,
+      "id": "creative_studio_tab_creative",
+      "hideIcon": true
+    },
+    "zoom_studio_label_title": {
+      "label": "Zoom image studio",
+      "id": "zoom_studio_label_title",
+      "hideText": false
+    },
+    "load_img_multi_upload": {
+      "label": "Multi Upload",
+      "hideText": false,
+      "id": "load_img_multi_upload"
+    },
+    "ad_panel_btn_default_spread_8": {
+      "hideText": false,
+      "id": "ad_panel_btn_default_spread_8",
+      "label": "8 Default",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_live_simulation": {
+      "hideText": false,
+      "id": "ad_panel_label_live_simulation",
+      "label": "Live Interactive Simulation",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "resample_studio_view_enhanced": {
+      "id": "resample_studio_view_enhanced",
+      "hideText": false,
+      "label": "Result Only"
+    },
+    "ad_panel_switcher_btn_1": {
+      "hideText": false,
+      "id": "ad_panel_switcher_btn_1",
+      "label": "1",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "sharpener_studio_prev_slice": {
+      "label": "Prev Slice",
+      "id": "sharpener_studio_prev_slice",
+      "hideText": false
+    },
+    "ad_panel_btn_remove_rotation_frame": {
+      "hideText": true,
+      "label": "Remove Frame",
+      "id": "ad_panel_btn_remove_rotation_frame",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "zoom_studio_download_active_frame": {
+      "hideText": false,
+      "id": "zoom_studio_download_active_frame",
+      "label": "Active frame"
+    },
+    "creative_studio_tracestudio": {
+      "id": "creative_studio_tracestudio",
+      "hideText": false
+    },
+    "sharpener_studio_apply_current": {
+      "label": "Replace Active Slice",
+      "hideText": false,
+      "id": "sharpener_studio_apply_current"
+    },
+    "zoom_studio_compare_orig": {
+      "label": "Compare original",
+      "id": "zoom_studio_compare_orig",
+      "hideText": false
+    },
+    "resample_studio_frame_prev": {
+      "hideText": false,
+      "id": "resample_studio_frame_prev",
+      "label": "Prev Frame"
+    },
+    "ad_panel_btn_n_spread_5": {
+      "id": "ad_panel_btn_n_spread_5",
+      "label": "5 Panels",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_remove_hover_image": {
+      "label": "Remove Hover Image",
+      "id": "ad_panel_btn_remove_hover_image",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "resample_studio_download": {
+      "hideText": false,
+      "label": "Download",
+      "id": "resample_studio_download"
+    },
+    "sharpener_studio_label_title": {
+      "hideText": false,
+      "label": "RESOLUTION SHARPENER STUDIO",
+      "id": "sharpener_studio_label_title"
+    },
+    "ad_panel_btn_n_spread_6": {
+      "id": "ad_panel_btn_n_spread_6",
+      "label": "6 Panels",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_clear_rotation_playlist": {
+      "label": "Clear Playlist",
+      "hideText": false,
+      "id": "ad_panel_btn_clear_rotation_playlist",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_test_hover": {
+      "id": "ad_panel_btn_test_hover",
+      "hideText": false,
+      "label": "Test Hover",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "zoom_studio_label_extra_frames": {
+      "hideText": false,
+      "label": "Amount of extra frames",
+      "id": "zoom_studio_label_extra_frames"
+    },
+    "creative_studio_bubba1": {
+      "customIconType": "preset",
+      "id": "creative_studio_bubba1",
+      "iconName": "MessageSquare",
+      "hideText": false
+    },
+    "crop_sb_frame_next": {
+      "id": "crop_sb_frame_next",
+      "hideText": true
+    },
+    "resample_studio_zoom_in": {
+      "label": "Zoom In",
+      "hideText": false,
+      "id": "resample_studio_zoom_in"
+    },
+    "ad_panel_btn_clear_image": {
+      "label": "Clear Image",
+      "id": "ad_panel_btn_clear_image",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_zoom_studio": {
+      "hideText": false,
+      "id": "creative_studio_zoom_studio"
+    },
+    "sharpener_studio_apply_asset_pool": {
+      "id": "sharpener_studio_apply_asset_pool",
+      "hideText": false,
+      "label": "+ Asset Pool"
+    },
+    "sharpener_studio_zoom_out": {
+      "label": "Zoom Out",
+      "hideText": false,
+      "id": "sharpener_studio_zoom_out"
+    },
+    "sharpener_studio_close": {
+      "label": "Close",
+      "id": "sharpener_studio_close",
+      "hideText": false
+    },
+    "zoom_studio_reset_upload": {
+      "hideText": false,
+      "label": "Revert image",
+      "id": "zoom_studio_reset_upload"
+    },
+    "btn_cust_subtab_list": {
+      "label": "Browse All",
+      "id": "btn_cust_subtab_list",
+      "hideText": false
+    },
+    "label_crop_area_header": {
+      "id": "label_crop_area_header",
+      "hideText": true,
+      "label": ""
+    },
+    "creative_studio_smart_contour": {
+      "hideText": false,
+      "id": "creative_studio_smart_contour"
+    },
+    "carve_cell_padding_badge": {
+      "id": "carve_cell_padding_badge",
+      "hideText": false,
+      "label": "Cell Pad"
+    },
+    "krums_loader_tool": {
+      "customIconType": "preset",
+      "hideText": true,
+      "iconName": "ImagePlus",
+      "id": "krums_loader_tool"
+    },
+    "ad_panel_switcher_btn_4": {
+      "hideText": false,
+      "label": "4",
+      "id": "ad_panel_switcher_btn_4",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_toggle_interactive_mode": {
+      "id": "ad_panel_toggle_interactive_mode",
+      "label": "Edit Mode",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_minimize": {
+      "hideText": true,
+      "id": "ad_panel_btn_minimize",
+      "label": "Minimize",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "zoom_studio_frame_prev": {
+      "hideText": false,
+      "id": "zoom_studio_frame_prev",
+      "label": "Prev"
+    },
+    "ad_panel_btn_add_active_to_rotation": {
+      "hideText": false,
+      "label": "Add Active Image",
+      "id": "ad_panel_btn_add_active_to_rotation",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_shortcut_manager": {
+      "id": "creative_studio_shortcut_manager",
+      "hideText": false
+    },
+    "sharpener_studio_scale_1x": {
+      "id": "sharpener_studio_scale_1x",
+      "label": "1x Native",
+      "hideText": false
+    },
+    "ad_panel_label_advanced_spread_options": {
+      "id": "ad_panel_label_advanced_spread_options",
+      "hideText": false,
+      "label": "Advanced Spread Options",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "sharpener_studio_tab_clarity": {
+      "label": "Clarity & Details",
+      "hideText": false,
+      "id": "sharpener_studio_tab_clarity"
+    },
+    "zoom_studio_download_zip": {
+      "hideText": false,
+      "id": "zoom_studio_download_zip"
+    },
+    "modal_expand_resample": {
+      "id": "modal_expand_resample",
+      "hideText": false
+    },
+    "creative_studio_neo1": {
+      "customIconType": "preset",
+      "iconName": "Sparkles",
+      "hideText": false,
+      "id": "creative_studio_neo1"
+    },
+    "resample_studio_apply_replace": {
+      "hideText": false,
+      "id": "resample_studio_apply_replace",
+      "label": "Replace Frame"
+    },
+    "front_page_ad_swap_panels": {
+      "id": "front_page_ad_swap_panels",
+      "label": "Swap panels",
+      "iconName": "ArrowLeftRight",
+      "hideText": false,
+      "textColor": "#c7d2fe",
+      "backgroundColor": "#141538",
+      "borderColor": "#6366f1",
+      "accentColor": "#4f46e5",
+      "tooltip": "Swap Panels (Drag and drop or click two panels)"
+    },
+    "btn_cust_toggle_slot_headers": {
+      "label": "Slot Headers",
+      "id": "btn_cust_toggle_slot_headers",
+      "hideText": false
+    },
+    "crop_panel_fullscreen_toggle": {
+      "label": "Full Screen",
+      "hideText": true,
+      "id": "crop_panel_fullscreen_toggle"
+    },
+    "zoom_studio_quick_frames_8": {
+      "id": "zoom_studio_quick_frames_8",
+      "hideText": false,
+      "label": "+8"
+    },
+    "btn_cust_theme_emoji": {
+      "label": "Emoji",
+      "hideText": false,
+      "id": "btn_cust_theme_emoji"
+    },
+    "crop_history_visualizer": {
+      "hideText": false,
+      "id": "crop_history_visualizer"
+    },
+    "resample_studio_tab_tone": {
+      "hideText": false,
+      "label": "Color & Tone",
+      "id": "resample_studio_tab_tone"
+    },
+    "creative_studio_folder_manage": {
+      "id": "creative_studio_folder_manage",
+      "iconName": "ChevronRight",
+      "hideText": false,
+      "customIconType": "preset"
+    },
+    "zoom_studio_play_pause": {
+      "id": "zoom_studio_play_pause",
+      "hideText": false
+    },
+    "ad_panel_grid_overview_title": {
+      "hideText": false,
+      "label": "Front Page Advert Grid (3×3)",
+      "id": "ad_panel_grid_overview_title",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_mini_customizer": {
+      "hideText": false,
+      "id": "creative_studio_mini_customizer"
+    },
+    "front_page_ad_reset_spread": {
+      "id": "front_page_ad_reset_spread",
+      "label": "Reset 9-tile spread",
+      "iconName": "RotateCcw",
+      "hideText": true,
+      "textColor": "#94a3b8",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719",
+      "tooltip": "Reset 9-Tile Spread to defaults"
+    },
+    "sharpener_studio_scale_4x": {
+      "id": "sharpener_studio_scale_4x",
+      "hideText": false,
+      "label": "4x Ultra-Res"
+    },
+    "btn_cust_subtab_edit": {
+      "id": "btn_cust_subtab_edit",
+      "hideText": false,
+      "label": "Inspector"
+    },
+    "load_img_save_pdf": {
+      "label": "Save storyboard pdf",
+      "fontSize": "tiny",
+      "id": "load_img_save_pdf",
+      "iconSize": "small",
+      "hideText": false
+    },
+    "load_img_export_psd": {
+      "iconSize": "small",
+      "hideText": false,
+      "label": "Export storyboard psd",
+      "fontSize": "tiny",
+      "id": "load_img_export_psd"
+    },
+    "ad_panel_btn_link_target_self": {
+      "id": "ad_panel_btn_link_target_self",
+      "label": "Same Tab (_self)",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "storyboard_top_join": {
+      "id": "storyboard_top_join",
+      "hideText": false
+    },
+    "front_page_ad_control_deck": {
+      "id": "front_page_ad_control_deck",
+      "label": "Control Deck",
+      "iconName": "Layers",
+      "hideText": false,
+      "textColor": "#a7f3d0",
+      "backgroundColor": "#04241d",
+      "borderColor": "#059669",
+      "accentColor": "#10b981",
+      "tooltip": "Open Control Deck (Multi-slot Spread, Art Source, Filters & Controls)"
+    },
+    "creative_studio_the_log": {
+      "iconName": "ScrollText",
+      "hideText": false,
+      "customIconType": "preset",
+      "id": "creative_studio_the_log"
+    },
+    "creative_studio_auto_slice": {
+      "id": "creative_studio_auto_slice",
+      "hideText": false
+    },
+    "sharpener_studio_next_slice": {
+      "hideText": false,
+      "id": "sharpener_studio_next_slice",
+      "label": "Next Slice"
+    },
+    "btn_cust_theme_saved": {
+      "label": "Saved Setup",
+      "id": "btn_cust_theme_saved",
+      "hideText": false
+    },
+    "zoom_studio_copy_frame": {
+      "hideText": false,
+      "id": "zoom_studio_copy_frame",
+      "label": "Copy frame"
+    },
+    "creative_studio_img_desc": {
+      "customIconType": "preset",
+      "iconName": "Image",
+      "id": "creative_studio_img_desc",
+      "hideText": false
+    },
+    "zoom_studio_send_storyboard": {
+      "hideText": false,
+      "id": "zoom_studio_send_storyboard"
+    },
+    "resample_studio_scale_1_5x": {
+      "hideText": false,
+      "id": "resample_studio_scale_1_5x",
+      "label": "1.5x"
+    },
+    "multiCropStayInCrop": {
+      "customIconType": "preset",
+      "id": "multiCropStayInCrop",
+      "hideText": false,
+      "iconName": "SquareArrowRight",
+      "label": "Keep Crop"
+    },
+    "load_img_upload_local": {
+      "label": "Upload Local",
+      "hideText": false,
+      "id": "load_img_upload_local"
+    },
+    "ad_panel_btn_default_spread_5": {
+      "id": "ad_panel_btn_default_spread_5",
+      "label": "5 Default",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "resample_studio_apply_canvas": {
+      "label": "To Canvas",
+      "hideText": false,
+      "id": "resample_studio_apply_canvas"
+    },
+    "ad_panel_tab_rotation": {
+      "id": "ad_panel_tab_rotation",
+      "hideText": false,
+      "label": "Rotation",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_image_sharpener": {
+      "hideText": false,
+      "id": "creative_studio_image_sharpener"
+    },
+    "zoom_studio_extra_frames_dec": {
+      "id": "zoom_studio_extra_frames_dec",
+      "label": "-",
+      "hideText": false
+    },
+    "krums_btn_add_images": {
+      "id": "krums_btn_add_images",
+      "hideText": false
+    },
+    "storyboard_tool_drop_action": {
+      "hideText": true,
+      "label": "Drop Action",
+      "id": "storyboard_tool_drop_action"
+    },
+    "sharpener_studio_scale_2x": {
+      "id": "sharpener_studio_scale_2x",
+      "hideText": false,
+      "label": "2x Super-Res"
+    },
+    "modal_expand_preview_resample": {
+      "id": "modal_expand_preview_resample",
+      "hideText": true
+    },
+    "label_multicrop_section": {
+      "id": "label_multicrop_section",
+      "hideText": false
+    },
+    "sharpener_studio_view_enhanced": {
+      "id": "sharpener_studio_view_enhanced",
+      "label": "Enhanced Only",
+      "hideText": false
+    },
+    "modal_expand_preview_sharpener": {
+      "hideText": true,
+      "id": "modal_expand_preview_sharpener"
+    },
+    "krums_title_label": {
+      "id": "krums_title_label",
+      "label": "Krums"
+    },
+    "ad_panel_btn_save_complete_setup": {
+      "label": "Save All Buttons, Labels & Image As Default",
+      "id": "ad_panel_btn_save_complete_setup",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "load_img_export_json": {
+      "fontSize": "tiny",
+      "id": "load_img_export_json",
+      "iconSize": "small",
+      "hideText": false,
+      "label": "Export storyboard json"
+    },
+    "ad_panel_label_target_spread_image": {
+      "label": "Target Spread Image",
+      "hideText": false,
+      "id": "ad_panel_label_target_spread_image",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_default_spread_4": {
+      "id": "ad_panel_btn_default_spread_4",
+      "hideText": false,
+      "label": "4 Default",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_ad_undo_swap": {
+      "id": "front_page_ad_undo_swap",
+      "label": "Undo swap",
+      "iconName": "Undo2",
+      "hideText": true,
+      "textColor": "#67e8f9",
+      "backgroundColor": "#1e293b",
+      "borderColor": "#334155",
+      "accentColor": "#06b6d4",
+      "tooltip": "Undo last panel swap"
+    },
+    "creative_studio_smart_trim": {
+      "hideText": false,
+      "id": "creative_studio_smart_trim"
+    },
+    "zoom_studio_view_all_presets": {
+      "id": "zoom_studio_view_all_presets",
+      "label": "View all",
+      "hideText": false
+    },
+    "front_page_ad_toggle_panel_bar": {
+      "id": "front_page_ad_toggle_panel_bar",
+      "label": "Panel Controls",
+      "iconName": "SlidersHorizontal",
+      "hideText": true,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719",
+      "tooltip": "Show or hide lower advert panel control bar"
+    },
+    "ad_panel_btn_mode_toggle": {
+      "hideText": false,
+      "id": "ad_panel_btn_mode_toggle",
+      "label": "Discrete Mode",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_variations_studio": {
+      "id": "creative_studio_variations_studio",
+      "hideText": false
+    },
+    "header_logo": {
+      "id": "header_logo",
+      "label": "",
+      "iconName": "Zap",
+      "hideText": true,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719",
+      "tooltip": "Return to Front Page / Home (Double-click or right-click to edit Logo & Title)"
+    },
+    "btn_cust_sort_alpha": {
+      "label": "Sort A-Z",
+      "id": "btn_cust_sort_alpha",
+      "hideText": false
+    },
+    "ad_panel_label_spread_engine_desc": {
+      "hideText": false,
+      "id": "ad_panel_label_spread_engine_desc",
+      "label": "Initial image is preserved as the spread target. Any spread chosen parses this target image amongst your selected boxes.",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "load_target_storyboard": {
+      "id": "load_target_storyboard",
+      "hideText": false,
+      "label": "Storyboard"
+    },
+    "zoom_studio_tab_presets": {
+      "id": "zoom_studio_tab_presets",
+      "label": "Presets",
+      "hideText": false
+    },
+    "creative_studio_shape_studio": {
+      "hideText": false,
+      "customIconType": "preset",
+      "iconName": "Boxes",
+      "id": "creative_studio_shape_studio"
+    },
+    "carve_top_smart_trim": {
+      "id": "carve_top_smart_trim",
+      "hideText": true
+    },
+    "creative_studio_tab_advanced": {
+      "hideText": false,
+      "id": "creative_studio_tab_advanced"
+    },
+    "resample_studio_tab_deblur": {
+      "hideText": false,
+      "id": "resample_studio_tab_deblur",
+      "label": "Deblur & Mask"
+    },
+    "btn_cust_theme_zero": {
+      "hideText": false,
+      "label": "Zero-Text",
+      "id": "btn_cust_theme_zero"
+    },
+    "ad_panel_label_quick_spread_nbox": {
+      "id": "ad_panel_label_quick_spread_nbox",
+      "hideText": false,
+      "label": "Quick Spread N-Box",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "creative_studio_tab_utility": {
+      "id": "creative_studio_tab_utility",
+      "hideText": false
+    },
+    "sharpener_studio_download_png": {
+      "id": "sharpener_studio_download_png",
+      "hideText": false,
+      "label": "Download PNG"
+    },
+    "zoom_studio_extra_frames_inc": {
+      "id": "zoom_studio_extra_frames_inc",
+      "label": "+",
+      "hideText": false
+    },
+    "ad_panel_btn_spread_target_9": {
+      "hideText": false,
+      "label": "Spread Target Image Across 3×3 (All 9)",
+      "id": "ad_panel_btn_spread_target_9",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "krums_tab_effects": {
+      "label": "Effects",
+      "id": "krums_tab_effects",
+      "hideText": false
+    },
+    "btn_cust_filter_buttons": {
+      "label": "Buttons",
+      "hideText": false,
+      "id": "btn_cust_filter_buttons"
+    },
+    "resample_studio_tab_resolution": {
+      "id": "resample_studio_tab_resolution",
+      "label": "Resolution",
+      "hideText": false
+    },
+    "sharpener_studio_view_split": {
+      "label": "Split",
+      "id": "sharpener_studio_view_split",
+      "hideText": false
+    },
+    "ad_panel_btn_hover_fx_none": {
+      "hideText": false,
+      "id": "ad_panel_btn_hover_fx_none",
+      "label": "None",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "sharpener_studio_scale_1_5x": {
+      "hideText": false,
+      "id": "sharpener_studio_scale_1_5x",
+      "label": "1.5x HD"
+    },
+    "sharpener_studio_zoom_fit": {
+      "id": "sharpener_studio_zoom_fit",
+      "label": "Fit",
+      "hideText": false
+    },
+    "carve_toggle_grid_labels": {
+      "hideText": false,
+      "id": "carve_toggle_grid_labels"
+    },
+    "label_define_canvas_crop": {
+      "label": "",
+      "id": "label_define_canvas_crop",
+      "hideText": true
+    },
+    "creative_studio_anicomposer": {
+      "hideText": false,
+      "id": "creative_studio_anicomposer"
+    },
+    "resample_studio_label_title": {
+      "label": "Resample Studio",
+      "id": "resample_studio_label_title",
+      "hideText": false
+    },
+    "sharpener_studio_view_side_by_side": {
+      "id": "sharpener_studio_view_side_by_side",
+      "label": "Side-by-Side",
+      "hideText": false
+    },
+    "resample_studio_scale_1_25x": {
+      "id": "resample_studio_scale_1_25x",
+      "label": "1.25x",
+      "hideText": false
+    },
+    "storyboard_top_fill_empties": {
+      "hideText": false,
+      "id": "storyboard_top_fill_empties"
+    },
+    "creative_studio_messhi": {
+      "id": "creative_studio_messhi",
+      "hideText": false
+    },
+    "sharpener_studio_tab_color": {
+      "label": "Color & Light",
+      "hideText": false,
+      "id": "sharpener_studio_tab_color"
+    },
+    "carve_grid_cfg_badge": {
+      "hideText": false,
+      "label": "Grid",
+      "id": "carve_grid_cfg_badge"
+    },
+    "krums_dock_send_storyboard": {
+      "hideText": false,
+      "label": "to Storyboard",
+      "id": "krums_dock_send_storyboard"
+    },
+    "resample_studio_zoom_out": {
+      "hideText": false,
+      "id": "resample_studio_zoom_out",
+      "label": "Zoom Out"
+    },
+    "header_studio_palette": {
+      "id": "header_studio_palette",
+      "hideText": true,
+      "label": ""
+    },
+    "front_page_box_fullscreen_btn": {
+      "label": "Full Screen Controls",
+      "id": "front_page_box_fullscreen_btn",
+      "hideText": false,
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "krums_dock_send_carver": {
+      "id": "krums_dock_send_carver",
+      "label": "Carver",
+      "iconName": "Scissors",
+      "hideText": false,
+      "customIconType": "preset"
+    },
+    "creative_studio_screenplay": {
+      "iconName": "Clapperboard",
+      "customIconType": "preset",
+      "hideText": false,
+      "id": "creative_studio_screenplay"
+    },
+    "ad_panel_btn_rotation_toggle": {
+      "id": "ad_panel_btn_rotation_toggle",
+      "hideText": false,
+      "label": "Rotation Active",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "resample_studio_tab_degrain": {
+      "id": "resample_studio_tab_degrain",
+      "hideText": false,
+      "label": "Denoise & Grain"
+    },
+    "creative_studio_layout_presets_manager": {
+      "hideText": false,
+      "id": "creative_studio_layout_presets_manager"
+    },
+    "btn_cust_theme_cyberpunk": {
+      "hideText": false,
+      "id": "btn_cust_theme_cyberpunk",
+      "label": "Cyberpunk"
+    },
+    "resample_studio_aspect_lock": {
+      "hideText": false,
+      "id": "resample_studio_aspect_lock",
+      "label": "Locked"
+    },
+    "front_page_ad_4x4": {
+      "iconName": "Grid",
+      "hideText": false,
+      "label": "4×4",
+      "tooltip": "Switch Front Page Advert grid between 3×3 and 4×4 layout",
+      "id": "front_page_ad_4x4",
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_ad_slide_menu_trigger": {
+      "id": "front_page_ad_slide_menu_trigger",
+      "label": "System",
+      "iconName": "SlidersHorizontal",
+      "hideText": false,
+      "textColor": "#6ee7b7",
+      "backgroundColor": "#081220",
+      "borderColor": "#334155",
+      "accentColor": "#10b981",
+      "tooltip": "Open slide-out menu (Baseline Default, Cloud DB, Interactive Links On/Off)"
+    },
+    "front_page_ad_save_as_default": {
+      "id": "front_page_ad_save_as_default",
+      "label": "Set as baseline default",
+      "iconName": "Bookmark",
+      "hideText": true,
+      "textColor": "#fbbf24",
+      "backgroundColor": "#2a1b06",
+      "borderColor": "#f59e0b",
+      "accentColor": "#d97706",
+      "tooltip": "Save present advert panel arrangement and loaded image as baseline default in database"
+    },
+    "header_cloud_db": {
+      "tooltip": "Open Cloud Database Configuration Modal",
+      "id": "header_cloud_db",
+      "label": "",
+      "iconName": "Database",
+      "hideText": true
+    },
+    "header_utility_modal": {
+      "tooltip": "Open Utility Modal",
+      "label": "",
+      "hideText": true,
+      "iconName": "Cpu",
+      "id": "header_utility_modal"
+    },
+    "crop_adv_modal": {
+      "label": "Adv",
+      "tooltip": "Open Adv Modal",
+      "id": "crop_adv_modal",
+      "iconName": "Zap",
+      "hideText": false
+    },
+    "front_page_ad_header_title": {
+      "id": "front_page_ad_header_title",
+      "label": "",
+      "iconName": "Grid3x3",
+      "hideText": true,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719"
+    },
+    "front_page_ad_header_badge": {
+      "id": "front_page_ad_header_badge",
+      "label": "",
+      "iconName": "LayoutGrid",
+      "hideText": true,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719"
+    },
+    "front_page_ad_header_reset_btn": {
+      "id": "front_page_ad_header_reset_btn",
+      "label": "",
+      "iconName": "RotateCcw",
+      "hideText": true,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719"
+    },
+    "front_page_ad_utility_modal": {
+      "id": "front_page_ad_utility_modal",
+      "label": "Utility",
+      "iconName": "Cpu",
+      "hideText": false,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719",
+      "tooltip": "Open Utility Modal"
+    },
+    "front_page_ad_adv_modal": {
+      "id": "front_page_ad_adv_modal",
+      "label": "Adv modal",
+      "iconName": "Zap",
+      "hideText": false,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719",
+      "tooltip": "Open Adv Modal"
+    },
+    "front_page_ad_footer_title": {
+      "id": "front_page_ad_footer_title",
+      "label": "Front Page Advert Panels",
+      "iconName": "Grid3x3",
+      "hideText": false,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719"
+    },
+    "front_page_ad_footer_badge": {
+      "id": "front_page_ad_footer_badge",
+      "label": "9 Panels (3×3)",
+      "iconName": "LayoutGrid",
+      "hideText": false,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719"
+    },
+    "front_page_ad_hint_drag": {
+      "id": "front_page_ad_hint_drag",
+      "label": "Drag & drop panels to swap. Hover for quick actions.",
+      "iconName": "ArrowLeftRight",
+      "hideText": false,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#151719"
+    },
+    "control_deck_btn_submit_preview": {
+      "hideText": true,
+      "id": "control_deck_btn_submit_preview"
+    },
+    "ad_panel_btn_actions_clear_image": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_actions_clear_image",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_actions_reset_9_box": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_actions_reset_9_box",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_actions_save_all_default": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_actions_save_all_default",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_actions_send_carver": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_actions_send_carver",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_aspect_16_9": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_aspect_16_9",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_aspect_1_1": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_aspect_1_1",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_aspect_4_3": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_aspect_4_3",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_aspect_auto": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_aspect_auto",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_1": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_1",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_2": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_2",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_3": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_3",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_4": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_4",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_5": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_5",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_6": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_6",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_7": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_7",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_8": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_8",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_swap_target_9": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_swap_target_9",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_upload_active_panel": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_upload_active_panel",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_upload_hover_image": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_upload_hover_image",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_btn_upload_rotation_frame": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_btn_upload_rotation_frame",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_actions_persistence": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_actions_persistence",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_actions_title": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_actions_title",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_active_panel": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_active_panel",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_dest_url": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_dest_url",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_footer_hint": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_footer_hint",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_hover_fx": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_hover_fx",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_link_title": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_link_title",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_live_preview": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_live_preview",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_master_badge": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_master_badge",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_media_subtitle": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_media_subtitle",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_media_title": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_media_title",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_panel_badge": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_panel_badge",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_rotation_interval": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_rotation_interval",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_rotation_playlist": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_rotation_playlist",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_rotation_title": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_rotation_title",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_secondary_hover_image": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_secondary_hover_image",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_swap_desc": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_swap_desc",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_swap_subtitle": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_swap_subtitle",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_swap_title": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_swap_title",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_target_spread_desc": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_target_spread_desc",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_label_target_window": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_label_target_window",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_1": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_1",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_2": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_2",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_3": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_3",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_4": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_4",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_5": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_5",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_6": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_6",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_7": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_7",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_8": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_8",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_minimap_btn_9": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_minimap_btn_9",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_actions": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_actions",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_asset_sorter": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_asset_sorter",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_link": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_link",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_media": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_media",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_parallax": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_parallax",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_spread": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_spread",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_spread_studio": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_spread_studio",
+      "textColor": "#e2e8f0"
+    },
+    "ad_panel_tab_swap": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "ad_panel_tab_swap",
+      "textColor": "#e2e8f0"
+    },
+    "adv_modal_anicomposer": {
+      "hideText": false,
+      "id": "adv_modal_anicomposer"
+    },
+    "adv_modal_auto_slice": {
+      "hideText": false,
+      "id": "adv_modal_auto_slice",
+      "label": "Auto Slice (Sprite Detection)"
+    },
+    "adv_modal_grid_mesh": {
+      "hideText": false,
+      "id": "adv_modal_grid_mesh"
+    },
+    "adv_modal_image_sharpener": {
+      "hideText": false,
+      "id": "adv_modal_image_sharpener"
+    },
+    "adv_modal_krums": {
+      "hideText": false,
+      "id": "adv_modal_krums"
+    },
+    "adv_modal_messhi": {
+      "hideText": false,
+      "id": "adv_modal_messhi"
+    },
+    "adv_modal_resample_studio": {
+      "hideText": false,
+      "id": "adv_modal_resample_studio"
+    },
+    "adv_modal_smart_contour": {
+      "hideText": false,
+      "id": "adv_modal_smart_contour"
+    },
+    "canvas_fit_screen": {
+      "hideText": true,
+      "id": "canvas_fit_screen"
+    },
+    "creative_studio_aniplayer": {
+      "hideText": false,
+      "id": "creative_studio_aniplayer",
+      "label": "AniPlayer Studio"
+    },
+    "creative_studio_asset_sorter": {
+      "hideText": false,
+      "id": "creative_studio_asset_sorter"
+    },
+    "creative_studio_spread_studio": {
+      "hideText": false,
+      "id": "creative_studio_spread_studio"
+    },
+    "creative_studio_txt_studio": {
+      "hideText": false,
+      "id": "creative_studio_txt_studio"
+    },
+    "crop_2canvas": {
+      "hideText": true,
+      "id": "crop_2canvas"
+    },
+    "front_page_ad_4x4_launcher": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_ad_4x4_launcher",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_ad_btn_4x4": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_ad_btn_4x4",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_ad_cancel_swap": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_ad_cancel_swap",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_clear": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_clear",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_custom_spread": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_custom_spread",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_from_storyboard": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_from_storyboard",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_rotate_series": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_rotate_series",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_send_carver": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_send_carver",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_set_default_btn": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_set_default_btn",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_spread_all_9": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_spread_all_9",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_spread_default": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_spread_default",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_spread_nbox": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_spread_nbox",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_swap_panel": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_swap_panel",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_tilelink": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_tilelink",
+      "textColor": "#e2e8f0"
+    },
+    "front_page_box_upload": {
+      "accentColor": "#151719",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "id": "front_page_box_upload",
+      "textColor": "#e2e8f0"
+    },
+    "items": [
+      {
+        "id": "item_page_studio",
+        "key": "page_studio",
+        "visible": true,
+        "type": "page",
+        "customLabel": "Txtanicomposer studio",
+        "originalLabel": "Txtanicomposer studio"
+      },
+      {
+        "id": "item_page_text_submissions",
+        "type": "page",
+        "customLabel": "Text submissions ingest studio",
+        "originalLabel": "Text submissions ingest studio",
+        "key": "page_text_submissions",
+        "visible": true
+      },
+      {
+        "visible": true,
+        "customLabel": "Timeline sequencer",
+        "id": "item_page_timeline",
+        "key": "page_timeline",
+        "originalLabel": "Timeline sequencer",
+        "type": "page"
+      },
+      {
+        "customLabel": "Stage canvas viewport",
+        "originalLabel": "Stage canvas viewport",
+        "id": "item_page_canvas",
+        "visible": true,
+        "type": "page",
+        "key": "page_canvas"
+      },
+      {
+        "type": "tab",
+        "visible": true,
+        "originalLabel": "Track lanes",
+        "key": "tab_tracks",
+        "customLabel": "Track lanes",
+        "id": "item_tab_tracks"
+      },
+      {
+        "key": "tab_inspector",
+        "customLabel": "Property inspector",
+        "visible": true,
+        "id": "item_tab_inspector",
+        "type": "tab",
+        "originalLabel": "Property inspector"
+      },
+      {
+        "key": "tab_onion_skin",
+        "type": "tab",
+        "customLabel": "Onion skinning",
+        "visible": true,
+        "id": "item_tab_onion_skin",
+        "originalLabel": "Onion skinning"
+      },
+      {
+        "id": "item_tab_strobe",
+        "type": "tab",
+        "key": "tab_strobe",
+        "customLabel": "Backdrop strobe",
+        "originalLabel": "Backdrop strobe",
+        "visible": true
+      },
+      {
+        "id": "item_tab_guides",
+        "type": "tab",
+        "originalLabel": "Safe guides",
+        "customLabel": "Safe guides",
+        "key": "tab_guides",
+        "visible": true
+      },
+      {
+        "key": "tab_presets",
+        "visible": true,
+        "type": "tab",
+        "id": "item_tab_presets",
+        "originalLabel": "Motion presets",
+        "customLabel": "Motion presets"
+      },
+      {
+        "type": "tab",
+        "customLabel": "State recall & command log",
+        "key": "tab_history",
+        "id": "item_tab_history",
+        "originalLabel": "State recall & command log",
+        "visible": true
+      },
+      {
+        "customLabel": "Storyboard asset pool",
+        "visible": true,
+        "type": "tab",
+        "key": "tab_storyboard",
+        "id": "item_tab_storyboard",
+        "originalLabel": "Storyboard asset pool"
+      },
+      {
+        "customLabel": "Text submissions rapid ingest",
+        "id": "item_modal_text_submissions",
+        "key": "modal_text_submissions",
+        "originalLabel": "Text submissions rapid ingest",
+        "visible": true,
+        "type": "modal"
+      },
+      {
+        "visible": true,
+        "id": "item_modal_button_customizer",
+        "customLabel": "Button customizer studio",
+        "key": "modal_button_customizer",
+        "originalLabel": "Button customizer studio",
+        "type": "modal"
+      },
+      {
+        "type": "modal",
+        "key": "modal_state_history",
+        "visible": true,
+        "customLabel": "State snapshots & command log",
+        "originalLabel": "State snapshots & command log",
+        "id": "item_modal_state_history"
+      },
+      {
+        "originalLabel": "Initial studio state selection",
+        "type": "modal",
+        "id": "item_modal_onload_state",
+        "visible": true,
+        "key": "modal_onload_state",
+        "customLabel": "Initial studio state selection"
+      },
+      {
+        "visible": true,
+        "id": "item_modal_export",
+        "originalLabel": "Export animation studio",
+        "type": "modal",
+        "customLabel": "Export animation studio",
+        "key": "modal_export"
+      },
+      {
+        "key": "modal_storyboard_pool",
+        "type": "modal",
+        "customLabel": "Storyboard asset pool",
+        "id": "item_modal_storyboard_pool",
+        "originalLabel": "Storyboard asset pool",
+        "visible": true
+      },
+      {
+        "visible": true,
+        "customLabel": "Canvas stage toolbar",
+        "id": "item_panel_canvas_toolbar",
+        "key": "panel_canvas_toolbar",
+        "type": "panel",
+        "originalLabel": "Canvas stage toolbar"
+      },
+      {
+        "id": "item_panel_timeline_controls",
+        "customLabel": "Playback transport & timeline",
+        "originalLabel": "Playback transport & timeline",
+        "visible": true,
+        "type": "panel",
+        "key": "panel_timeline_controls"
+      },
+      {
+        "type": "panel",
+        "customLabel": "Multi-track layer engine",
+        "visible": true,
+        "key": "panel_track_header",
+        "id": "item_panel_track_header",
+        "originalLabel": "Multi-track layer engine"
+      },
+      {
+        "originalLabel": "Transform & easing inspector",
+        "type": "panel",
+        "key": "panel_transform_inspector",
+        "id": "item_panel_transform_inspector",
+        "customLabel": "Transform & easing inspector",
+        "visible": true
+      },
+      {
+        "visible": true,
+        "id": "item_panel_text_typography",
+        "key": "panel_text_typography",
+        "customLabel": "Typography & text styling",
+        "originalLabel": "Typography & text styling",
+        "type": "panel"
+      },
+      {
+        "visible": true,
+        "type": "panel",
+        "customLabel": "Backdrop strobe flash engine",
+        "key": "panel_strobe_engine",
+        "id": "item_panel_strobe_engine",
+        "originalLabel": "Backdrop strobe flash engine"
+      },
+      {
+        "customLabel": "Multi-frame onion skinning",
+        "id": "item_panel_onion_skinning",
+        "key": "panel_onion_skinning",
+        "originalLabel": "Multi-frame onion skinning",
+        "type": "panel",
+        "visible": true
+      },
+      {
+        "id": "item_panel_safe_guides",
+        "type": "panel",
+        "customLabel": "Composition safe guides",
+        "key": "panel_safe_guides",
+        "originalLabel": "Composition safe guides",
+        "visible": true
+      },
+      {
+        "visible": true,
+        "originalLabel": "Txtanicomposer studio",
+        "id": "item_label_brand",
+        "customLabel": "Txtanicomposer studio",
+        "type": "label",
+        "key": "label_brand"
+      },
+      {
+        "visible": true,
+        "type": "label",
+        "key": "btn_text_submissions",
+        "id": "item_btn_text_submissions",
+        "customLabel": "Text submissions",
+        "originalLabel": "Text submissions"
+      },
+      {
+        "customLabel": "Button customizer",
+        "key": "btn_button_customizer",
+        "type": "label",
+        "originalLabel": "Button customizer",
+        "visible": true,
+        "id": "item_btn_button_customizer"
+      },
+      {
+        "visible": true,
+        "key": "btn_state_history",
+        "type": "label",
+        "customLabel": "State recall & log",
+        "originalLabel": "State recall & log",
+        "id": "item_btn_state_history"
+      },
+      {
+        "customLabel": "Export animation",
+        "id": "item_btn_export",
+        "originalLabel": "Export animation",
+        "visible": true,
+        "key": "btn_export",
+        "type": "label"
+      },
+      {
+        "id": "item_btn_play",
+        "customLabel": "Play animation",
+        "type": "label",
+        "originalLabel": "Play animation",
+        "key": "btn_play",
+        "visible": true
+      },
+      {
+        "originalLabel": "Pause animation",
+        "key": "btn_pause",
+        "visible": true,
+        "type": "label",
+        "customLabel": "Pause animation",
+        "id": "item_btn_pause"
+      },
+      {
+        "type": "label",
+        "originalLabel": "Step back 1 frame",
+        "customLabel": "Step back 1 frame",
+        "id": "item_btn_step_back",
+        "key": "btn_step_back",
+        "visible": true
+      },
+      {
+        "visible": true,
+        "id": "item_btn_step_forward",
+        "type": "label",
+        "originalLabel": "Step forward 1 frame",
+        "key": "btn_step_forward",
+        "customLabel": "Step forward 1 frame"
+      },
+      {
+        "customLabel": "Insert keyframe",
+        "type": "label",
+        "originalLabel": "Insert keyframe",
+        "id": "item_btn_add_keyframe",
+        "key": "btn_add_keyframe",
+        "visible": true
+      },
+      {
+        "id": "item_btn_add_text_track",
+        "originalLabel": "Add text track",
+        "key": "btn_add_text_track",
+        "visible": true,
+        "customLabel": "Add text track",
+        "type": "label"
+      },
+      {
+        "customLabel": "Add character track",
+        "id": "item_btn_add_character_track",
+        "type": "label",
+        "key": "btn_add_character_track",
+        "visible": true,
+        "originalLabel": "Add character track"
+      },
+      {
+        "id": "item_btn_add_background_track",
+        "originalLabel": "Add background track",
+        "visible": true,
+        "key": "btn_add_background_track",
+        "customLabel": "Add background track",
+        "type": "label"
+      },
+      {
+        "id": "item_btn_add_effect_track",
+        "originalLabel": "Add effect track",
+        "visible": true,
+        "type": "label",
+        "key": "btn_add_effect_track",
+        "customLabel": "Add effect track"
+      },
+      {
+        "type": "label",
+        "visible": true,
+        "id": "item_btn_add_shape_track",
+        "originalLabel": "Add shape track",
+        "customLabel": "Add shape track",
+        "key": "btn_add_shape_track"
+      },
+      {
+        "key": "btn_auto_keyframe",
+        "type": "label",
+        "customLabel": "Auto keyframe",
+        "originalLabel": "Auto keyframe",
+        "id": "item_btn_auto_keyframe",
+        "visible": true
+      },
+      {
+        "key": "btn_loop",
+        "visible": true,
+        "originalLabel": "Loop playback",
+        "customLabel": "Loop playback",
+        "type": "label",
+        "id": "item_btn_loop"
+      },
+      {
+        "key": "btn_rule_of_thirds",
+        "originalLabel": "Rule of thirds",
+        "customLabel": "Rule of thirds",
+        "visible": true,
+        "id": "item_btn_rule_of_thirds",
+        "type": "label"
+      },
+      {
+        "id": "item_btn_center_crosshair",
+        "key": "btn_center_crosshair",
+        "customLabel": "Center crosshair",
+        "visible": true,
+        "type": "label",
+        "originalLabel": "Center crosshair"
+      },
+      {
+        "visible": true,
+        "id": "item_btn_action_safe_box",
+        "key": "btn_action_safe_box",
+        "type": "label",
+        "customLabel": "Action safe box",
+        "originalLabel": "Action safe box"
+      },
+      {
+        "visible": true,
+        "type": "label",
+        "id": "item_btn_motion_path",
+        "key": "btn_motion_path",
+        "customLabel": "Motion path trajectory",
+        "originalLabel": "Motion path trajectory"
+      },
+      {
+        "visible": true,
+        "customLabel": "Backdrop strobe",
+        "key": "btn_strobe_toggle",
+        "type": "label",
+        "originalLabel": "Backdrop strobe",
+        "id": "item_btn_strobe_toggle"
+      },
+      {
+        "visible": true,
+        "key": "btn_onion_skin_toggle",
+        "type": "label",
+        "originalLabel": "Onion skinning",
+        "id": "item_btn_onion_skin_toggle",
+        "customLabel": "Onion skinning"
+      },
+      {
+        "customLabel": "Commit to storyboard",
+        "id": "item_btn_commit_storyboard",
+        "visible": true,
+        "key": "btn_commit_storyboard",
+        "originalLabel": "Commit to storyboard",
+        "type": "label"
+      },
+      {
+        "originalLabel": "Save state snapshot",
+        "type": "label",
+        "key": "btn_save_state",
+        "id": "item_btn_save_state",
+        "visible": true,
+        "customLabel": "Save state snapshot"
+      },
+      {
+        "id": "item_btn_export_json",
+        "customLabel": "Export customizer state to json",
+        "key": "btn_export_json",
+        "type": "label",
+        "visible": true,
+        "originalLabel": "Export customizer state to json"
+      },
+      {
+        "customLabel": "Import customizer json",
+        "id": "item_btn_import_json",
+        "key": "btn_import_json",
+        "visible": true,
+        "type": "label",
+        "originalLabel": "Import customizer json"
+      },
+      {
+        "customLabel": "Reset to studio defaults",
+        "visible": true,
+        "originalLabel": "Reset to studio defaults",
+        "type": "label",
+        "key": "btn_reset_defaults",
+        "id": "item_btn_reset_defaults"
+      },
+      {
+        "key": "label_active_layer",
+        "visible": true,
+        "type": "label",
+        "customLabel": "Active layer",
+        "id": "item_label_active_layer",
+        "originalLabel": "Active layer"
+      },
+      {
+        "type": "label",
+        "customLabel": "Easing curve",
+        "visible": true,
+        "originalLabel": "Easing curve",
+        "key": "label_easing",
+        "id": "item_label_easing"
+      },
+      {
+        "visible": true,
+        "key": "opt_easing_bounce",
+        "originalLabel": "Bounce",
+        "type": "label",
+        "customLabel": "Bounce",
+        "id": "item_opt_easing_bounce"
+      },
+      {
+        "visible": true,
+        "id": "item_opt_easing_ease-in",
+        "customLabel": "Ease in",
+        "key": "opt_easing_ease-in",
+        "type": "label",
+        "originalLabel": "Ease in"
+      },
+      {
+        "customLabel": "Ease in out",
+        "id": "item_opt_easing_ease-in-out",
+        "type": "label",
+        "key": "opt_easing_ease-in-out",
+        "visible": true,
+        "originalLabel": "Ease in out"
+      },
+      {
+        "id": "item_opt_easing_ease-out",
+        "customLabel": "Ease out",
+        "key": "opt_easing_ease-out",
+        "visible": true,
+        "type": "label",
+        "originalLabel": "Ease out"
+      },
+      {
+        "originalLabel": "Hold",
+        "id": "item_opt_easing_hold",
+        "type": "label",
+        "key": "opt_easing_hold",
+        "visible": true,
+        "customLabel": "Hold"
+      },
+      {
+        "visible": true,
+        "id": "item_opt_easing_linear",
+        "key": "opt_easing_linear",
+        "originalLabel": "Linear",
+        "customLabel": "Linear",
+        "type": "label"
+      }
+    ],
+    "mode_carve": {
+      "hideText": true,
+      "id": "mode_carve"
+    },
+    "mode_crop": {
+      "hideText": true,
+      "id": "mode_crop"
+    },
+    "utility_modal_button_customizer": {
+      "hideText": false,
+      "id": "utility_modal_button_customizer"
+    },
+    "utility_modal_cloud_db_config": {
+      "hideText": false,
+      "id": "utility_modal_cloud_db_config"
+    },
+    "utility_modal_join_images": {
+      "hideText": false,
+      "id": "utility_modal_join_images"
+    },
+    "utility_modal_layout_presets_manager": {
+      "hideText": false,
+      "id": "utility_modal_layout_presets_manager"
+    },
+    "utility_modal_mini_customizer": {
+      "hideText": false,
+      "id": "utility_modal_mini_customizer"
+    },
+    "utility_modal_mouse_over_studio": {
+      "hideText": false,
+      "id": "utility_modal_mouse_over_studio"
+    },
+    "utility_modal_rename_studio": {
+      "hideText": false,
+      "id": "utility_modal_rename_studio"
+    },
+    "utility_modal_shortcut_manager": {
+      "hideText": false,
+      "id": "utility_modal_shortcut_manager"
+    },
+    "utility_modal_smart_trim": {
+      "hideText": false,
+      "id": "utility_modal_smart_trim"
+    },
+    "utility_modal_the_log": {
+      "hideText": false,
+      "id": "utility_modal_the_log"
+    },
+    "control_deck_btn_global_rotation": {
+      "id": "control_deck_btn_global_rotation",
+      "label": "Global Rotation",
+      "iconName": "RotateCw",
+      "hideText": false,
+      "textColor": "#e2e8f0",
+      "backgroundColor": "#0f172a",
+      "borderColor": "#334155",
+      "accentColor": "#10b981",
+      "tooltip": "Global Rotation Controls & Engine in Control Deck"
+    },
+    "load_target_spread_4x4": {
+      "id": "load_target_spread_4x4",
+      "label": "Spread 4x4",
+      "iconName": "LayoutGrid",
+      "hideText": false
+    }
+  },
+  "quickSlots": [
+    {
+      "id": "slot_1",
+      "name": "Quick Snapshot A (Hardcoded Default)",
+      "timestamp": "Factory Default"
+    },
+    {
+      "id": "slot_2",
+      "name": "Quick Snapshot B",
+      "timestamp": "2026-10-03T07:33:23.858Z"
+    },
+    {
+      "id": "slot_3",
+      "name": "Quick Snapshot C",
+      "timestamp": "2026-10-03T07:33:23.858Z"
+    }
+  ]
+}

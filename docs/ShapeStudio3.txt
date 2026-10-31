@@ -1,0 +1,65 @@
+Creation Date: 2026-08-18 | Last Updated: 2026-08-20
+
+# ShapeStudio Module Documentation (Part 3 of 4)
+## Interactive Toolset & Functionality Specifications
+
+
+### 7. Detailed Toolset Specifications
+
+#### 1. Select & Transform Tool (`activeTool: "select"`)
+- **Single / Multi-Selection**: Click individual layers or drag a marquee box to select multiple vector shapes simultaneously.
+- **Bounding Box Gizmo**: Displays 8 corner/edge resize handles, top rotation node, and skew controls.
+- **Layer Operations**: Align left/center/right/top/middle/bottom, bring forward, send backward, lock, hide, duplicate, delete.
+
+#### 2. Canvas Crop Workspace Tool (`activeTool: "crop"`)
+- **In-Place Crop Tool**: Selecting the crop tool or pressing 'C' activates interactive in-place cropping on the canvas stage without leaving ShapeStudio.
+- **Persistent Crop Mode**: After applying a crop or copying a selection, the tool remains in crop mode ready for subsequent cropping on the current frame or next frame.
+- **Sidebar Integration**: Integrated inside the Canvas Visibility section in the right sidebar (Shape & Layer Studio), positioned directly at the top above Shape Layers and Freehand Lines toggles in an 80% compact panel layout.
+- **Crop Shapes**:
+  - `Rectangle`: Standard rectangular / square crop selection box.
+  - `Oval / Circle`: Circular or elliptical vector clipping mask.
+- **Multi-Crops Support**:
+  - `+ Add to Multi-Crops`: Queue multiple crop regions (rectangular or oval) across frames with persistent badge labels and visual canvas overlays.
+  - `Individual Actions`: Apply single multi-crop to current frame, insert as image layer, extract as new storyboard frame, or delete.
+  - `Batch Actions`: Extract all queued multi-crops into new storyboard frames, or insert all queued multi-crops as layered cutouts in one click.
+- **Frame Navigation**: Embedded `< 1 / N >` buttons to step through storyboard frames while staying in crop mode.
+- **Operations**:
+  - `Apply Crop`: Crops base frame image to selection coordinates and updates frame in place.
+  - `Copy Selection`: Crops selected region and inserts it as a new `image` layer in the active frame.
+  - `Clear`: Resets current crop box.
+  - `Define Canvas & Crop Toolbar`: Dedicated option button to redirect the active frame to the main 'Define Canvas & Crop' toolbar.
+
+#### 3. Freehand Brush & Line Tool (`activeTool: "brush"` | `"lines"`)
+- **Stroke Parameters**: Color picker (with presets), stroke width (1px to 50px), opacity (0 to 1).
+- **Line Drawing Modes**:
+  - `Freehand Brush`: Continuous smooth curve tracing.
+  - `Straight Lines`: Point-to-point line segments with optional arrow heads.
+  - `Continuous Straight`: Multi-segment connected polylines.
+- **Specialty Effect Pens**:
+  - `Smudge`: Blurs and blends adjacent canvas pixels along brush path.
+  - `Spray Can`: Random particle dispersion effect.
+  - `Blur Brush`: Local Gaussian blur mask application.
+  - `Pattern Pens`: Stamps recurring shapes (`dots`, `stars`, `hearts`, `sparkles`, `arrows`) along stroke path.
+
+#### 4. Vector Geometry Tools (`rect` | `circle` | `star` | `heart` | `arrow` | `line`)
+- **Stroke & Fill Styling**: Color picker, stroke thickness, fill color / transparent, line style (`solid`, `dashed`, `dotted`), rounded corners.
+- **Arrow Vectors**: Single head, curved left/right, double head, and triple head vector arrows for storyboard motion directions.
+
+#### 5. Speech Balloon & Text Engine (`bubble` | `text`)
+- **Speech Types**: `speech` (smooth rounded balloon), `thought` (scalloped cloud), `shout` (jagged burst explosion), `caption` (rectangular overlay), `box` (clean frame).
+- **Interactive Tail Control**: Draggable tail handle node (`bubbleTail: { x, y }`) that dynamically points toward speaking characters regardless of bubble placement.
+- **Typography Controls**: Font size (8px to 120px), font family selection, alignment (left, center, right), bold, italic, text color.
+
+#### 6. Chroma Key & Background Removal (`chromaKey`)
+- **EyeDropper Picker**: Click anywhere on base frame image to sample background color.
+- **Tolerance Slider**: Adjust color distance tolerance threshold (0% to 100%).
+- **Keying Execution**: Processes image buffer, converts matching pixels within tolerance to RGBA (0, 0, 0, 0), and updates active frame image.
+
+#### 7. Healing Bandage / Spot Repair (`healingBandage`)
+- **Spot Clean**: Sample surrounding texture to patch over imperfections or text artifacts on base storyboard frame.
+
+===================================================================================
+CONTINUATION HOOK:
+This is Part 3 of 4 of the ShapeStudio technical specification.
+To inspect Layer Management, Keyboard Shortcuts, and Export Engine, see 'docs/ShapeStudio4.txt'.
+===================================================================================

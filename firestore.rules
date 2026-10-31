@@ -1,0 +1,342 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ---------------------------------------------------------------
+    // Core Primitives
+    // ---------------------------------------------------------------
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string
+          && id.size() >= 1
+          && id.size() <= 128
+          && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // ---------------------------------------------------------------
+    // Validation Blueprints (Anti-Update-Gap)
+    // ---------------------------------------------------------------
+    function isValidAppConfiguration(data, configId) {
+      return data.keys().hasAll([
+               'id',
+               'configKey',
+               'ownerId',
+               'version',
+               'appName',
+               'globalSettings',
+               'customConfigs',
+               'payload',
+               'updatedAt'
+             ])
+          && data.keys().hasOnly([
+               'id',
+               'configKey',
+               'ownerId',
+               'version',
+               'appName',
+               'globalSettings',
+               'customConfigs',
+               'payload',
+               'updatedAt'
+             ])
+          && data.id == configId
+          && isValidId(data.id)
+          && isValidId(data.configKey)
+          && isValidId(data.ownerId)
+          && data.ownerId == request.auth.uid
+          && data.version is string
+          && data.version.size() >= 1
+          && data.version.size() <= 50
+          && data.appName is string
+          && data.appName.size() >= 1
+          && data.appName.size() <= 100
+          && data.globalSettings is map
+          && data.globalSettings.size() <= 500
+          && data.customConfigs is map
+          && data.customConfigs.size() <= 10000
+          && data.payload is map
+          && data.payload.size() <= 500
+          && data.updatedAt == request.time;
+    }
+
+    function isValidUserSaveState(data, stateId) {
+      return data.keys().hasAll([
+               'id',
+               'stateKey',
+               'ownerId',
+               'data',
+               'isChunked',
+               'chunkIndex',
+               'totalChunks',
+               'totalSize',
+               'updatedAt'
+             ])
+          && data.keys().hasOnly([
+               'id',
+               'stateKey',
+               'ownerId',
+               'data',
+               'isChunked',
+               'chunkIndex',
+               'totalChunks',
+               'totalSize',
+               'updatedAt'
+             ])
+          && data.id == stateId
+          && isValidId(data.id)
+          && isValidId(data.stateKey)
+          && isValidId(data.ownerId)
+          && data.ownerId == request.auth.uid
+          && data.data is string
+          && data.data.size() >= 0
+          && data.data.size() <= 700000
+          && data.isChunked is bool
+          && data.chunkIndex is int
+          && data.chunkIndex >= 0
+          && data.chunkIndex <= 200
+          && data.totalChunks is int
+          && data.totalChunks >= 1
+          && data.totalChunks <= 200
+          && data.totalSize is int
+          && data.totalSize >= 0
+          && data.totalSize <= 50000000
+          && data.updatedAt == request.time;
+    }
+
+    function isValidUIConfigModuleDoc(data) {
+      return data.keys().hasAll([
+               'module',
+               'ownerId',
+               'schema_version',
+               'records',
+               'updatedAt'
+             ])
+          && data.keys().hasOnly([
+               'module',
+               'ownerId',
+               'schema_version',
+               'records',
+               'updatedAt'
+             ])
+          && isValidId(data.module)
+          && isValidId(data.ownerId)
+          && data.ownerId == request.auth.uid
+          && data.schema_version is int
+          && data.schema_version >= 1
+          && data.schema_version <= 100
+          && data.records is map
+          && data.records.size() <= 5000
+          && data.updatedAt == request.time;
+    }
+
+    function isValidUIConfigAuditEntry(data) {
+      return data.keys().hasAll([
+               'ownerId',
+               'element_key',
+               'module',
+               'action',
+               'author',
+               'payload',
+               'schema_version',
+               'createdAt'
+             ])
+          && data.keys().hasOnly([
+               'ownerId',
+               'element_key',
+               'module',
+               'action',
+               'author',
+               'payload',
+               'schema_version',
+               'createdAt'
+             ])
+          && isValidId(data.ownerId)
+          && data.ownerId == request.auth.uid
+          && data.element_key is string
+          && data.element_key.size() >= 1
+          && data.element_key.size() <= 256
+          && data.module is string
+          && data.module.size() >= 1
+          && data.module.size() <= 256
+          && data.action is string
+          && data.action.size() >= 1
+          && data.action.size() <= 32
+          && (data.action == 'upsert' || data.action == 'reset' || data.action == 'bulk_upsert')
+          && data.author is string
+          && data.author.size() >= 1
+          && data.author.size() <= 256
+          && data.payload is map
+          && data.payload.size() <= 10
+          && data.schema_version is int
+          && data.schema_version >= 1
+          && data.schema_version <= 100
+          && data.createdAt == request.time;
+    }
+
+    function isValidUIKeyValueShard(data) {
+      return data.keys().hasAll([
+               'shard',
+               'ownerId',
+               'entries',
+               'schemaVersion',
+               'updatedAt'
+             ])
+          && data.keys().hasOnly([
+               'shard',
+               'ownerId',
+               'entries',
+               'schemaVersion',
+               'updatedAt'
+             ])
+          && isValidId(data.shard)
+          && data.shard.size() <= 64
+          && isValidId(data.ownerId)
+          && data.ownerId == request.auth.uid
+          && data.entries is map
+          && data.entries.size() <= 2000
+          && data.schemaVersion is int
+          && data.schemaVersion == 2
+          && data.updatedAt == request.time;
+    }
+
+    // ---------------------------------------------------------------
+    // Collection Match Blocks
+    // ---------------------------------------------------------------
+    match /configurations/{configId} {
+      allow get: if isVerifiedUser()
+                 && isValidId(configId)
+                 && (resource == null || existing().ownerId == request.auth.uid);
+      allow list: if isVerifiedUser()
+                  && existing().ownerId == request.auth.uid;
+      allow create: if isVerifiedUser()
+                    && isValidId(configId)
+                    && isValidAppConfiguration(incoming(), configId);
+      allow update: if isVerifiedUser()
+                    && isValidId(configId)
+                    && isValidAppConfiguration(incoming(), configId)
+                    && existing().ownerId == request.auth.uid
+                    && incoming().ownerId == existing().ownerId
+                    && incoming().id == existing().id
+                    && incoming().configKey == existing().configKey
+                    && incoming().diff(existing()).affectedKeys().hasOnly([
+                         'version',
+                         'appName',
+                         'globalSettings',
+                         'customConfigs',
+                         'payload',
+                         'updatedAt'
+                       ]);
+      allow delete: if isVerifiedUser()
+                    && isValidId(configId)
+                    && existing().ownerId == request.auth.uid;
+    }
+
+    match /app_states/{stateId} {
+      allow get: if isVerifiedUser()
+                 && isValidId(stateId)
+                 && (resource == null || existing().ownerId == request.auth.uid);
+      allow list: if false;
+      allow create: if isVerifiedUser()
+                    && isValidId(stateId)
+                    && isValidUserSaveState(incoming(), stateId);
+      allow update: if isVerifiedUser()
+                    && isValidId(stateId)
+                    && isValidUserSaveState(incoming(), stateId)
+                    && existing().ownerId == request.auth.uid
+                    && incoming().ownerId == existing().ownerId
+                    && incoming().id == existing().id
+                    && incoming().stateKey == existing().stateKey
+                    && incoming().diff(existing()).affectedKeys().hasOnly([
+                         'data',
+                         'isChunked',
+                         'chunkIndex',
+                         'totalChunks',
+                         'totalSize',
+                         'updatedAt'
+                       ]);
+      allow delete: if isVerifiedUser()
+                    && isValidId(stateId)
+                    && existing().ownerId == request.auth.uid;
+    }
+
+    match /ui_config_registry/{moduleId} {
+      allow get: if isVerifiedUser()
+                 && isValidId(moduleId)
+                 && (resource == null || existing().ownerId == request.auth.uid);
+      allow list: if isVerifiedUser()
+                  && existing().ownerId == request.auth.uid;
+      allow create: if isVerifiedUser()
+                    && isValidId(moduleId)
+                    && isValidUIConfigModuleDoc(incoming());
+      allow update: if isVerifiedUser()
+                    && isValidId(moduleId)
+                    && isValidUIConfigModuleDoc(incoming())
+                    && existing().ownerId == request.auth.uid
+                    && incoming().ownerId == existing().ownerId
+                    && incoming().module == existing().module
+                    && incoming().diff(existing()).affectedKeys().hasOnly([
+                         'schema_version',
+                         'records',
+                         'updatedAt'
+                       ]);
+      allow delete: if false;
+    }
+
+    match /ui_config_audit/{auditId} {
+      allow get: if isVerifiedUser()
+                 && isValidId(auditId)
+                 && existing().ownerId == request.auth.uid;
+      allow list: if isVerifiedUser()
+                  && existing().ownerId == request.auth.uid;
+      allow create: if isVerifiedUser()
+                    && isValidId(auditId)
+                    && isValidUIConfigAuditEntry(incoming());
+      allow update, delete: if false;
+    }
+
+    match /ui_kv/{shardId} {
+      allow get: if isVerifiedUser()
+                 && isValidId(shardId)
+                 && (resource == null || existing().ownerId == request.auth.uid);
+      allow list: if isVerifiedUser()
+                  && existing().ownerId == request.auth.uid;
+      allow create: if isVerifiedUser()
+                    && isValidId(shardId)
+                    && isValidUIKeyValueShard(incoming());
+      allow update: if isVerifiedUser()
+                    && isValidId(shardId)
+                    && isValidUIKeyValueShard(incoming())
+                    && existing().ownerId == request.auth.uid
+                    && incoming().ownerId == existing().ownerId
+                    && incoming().shard == existing().shard
+                    && incoming().diff(existing()).affectedKeys().hasOnly([
+                         'entries',
+                         'schemaVersion',
+                         'updatedAt'
+                       ]);
+      allow delete: if isVerifiedUser()
+                    && isValidId(shardId)
+                    && existing().ownerId == request.auth.uid;
+    }
+  }
+}
